@@ -1,1 +1,69 @@
-<h1>Hi I am contact App</h1>
+{% extends 'homepage/base.html' %}
+
+
+{% block title %}
+    <title>Contact Developer| Haroff Web Consults</title>
+{% endblock %}
+
+{% block content %}
+
+ <!-- Links Tags -->
+ <div class="links-tag">
+    <h4> <i class="fa fa-home"></i> Home</h4> 
+    <h4> <i class="fa fa-address-book"></i> Contact</h4>
+</div>
+    <!-- Main -->
+    <main id="main">
+
+
+        <!-- Section A -->
+        <section id="section-a" class="grid">
+            <div class="content-wrap">
+                <h2 class="content-title">Contact Developer</h2>
+                <div class="content-text">
+                    <div class="wrapper">
+                        <div class="grid3">
+                            <span class="icon">
+                                <i class="fa fa-address-book" aria-hidden="true"></i>
+                            </span>
+                            Address Line
+                        </div>
+                        <div class="grid3">
+                            <span class="icon">
+                                <i class="fa fa-phone-square" aria-hidden="true"></i>
+                            </span>
+                           Phone Number
+                        </div>
+                        <div class="grid3">
+                            <span class="icon">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                           Mail Address
+                        </div>
+                        <div class="grid3">
+                            <span class="icon">
+                                <i class="fa fa-github"></i>
+                            </span>
+                            <a href="https://github.com/Horlawhumy-dev?tab=overview&from=2021-02-01&to=2021-02-04" target="_blank">Github Profile</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <h2>Message The Developer</h2>
+                    
+                    <form  class="contact-form" id="form">
+                        <input type="text"  name="fullname" placeholder="Your full names...">
+                        <input type="text" name="subject" placeholder="Subject or title...">
+                        <input type="email" name="email" placeholder="Type your email...">
+                        <textarea name="message" id="" cols="30" rows="10" class="text_area" placeholder="Type in your message..."></textarea>
+                        <button type="submit" class="btn_send">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll Button -->
+    <button class="scroll" id="scroll-top">
+        <i class="fa fa-arrow-circle-up"></i>
+    </button>
+{% endblock %}

@@ -1,1 +1,125 @@
-<h1>Hi I am about App</h1>
+{% extends 'homepage/base.html' %}
+{% load static %}
+
+
+
+{% block title %}
+    <title>About Developer| Haroff Web Consults</title>
+{% endblock %}
+
+{% block content %}
+   
+     <!-- Links Tags -->
+    <div class="links-tag">
+        <h4> <i class="fa fa-home"></i> Home</h4> 
+        <h4> <i class="fa fa-profile"></i> About</h4>
+    </div>
+
+    <!-- Main -->
+    <main id="main">
+          <!-- Section C -->
+        <section id="section-c" class="grid grid2">
+            <img src="{% static 'images/CEO.jpg'%}" alt="">
+            <div class="content-wrap">
+                <h2 class="content-title">About The Developer</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Aliquid vero, vel obcaecati nihil dolores rerum, 
+                    modi aliquam inventore delectus ut eligendi assumenda, natus distinctio cupiditate placeat nulla libero officiis ab.
+                </p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Vero magni eaque tempore suscipit ipsam error nemo fugiat vitae libero a ducimus repellendus exercitationem rerum,
+                    tenetur, neque doloremque obcaecati? Odio, nostrum.
+                </p>
+            </div>
+
+            <div class="about-links">
+                <div>
+                    <a href="https://twitter.com/HAROF97">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                    <div>
+                    <a href="https://www.linkedin.com/in/arafat-olayiwola-b52087191/">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.instagram.com/harof97/">
+                        <i class="fab fa-instagram"></i></a>
+                </div>
+                <div>
+                    <a href="https://web.facebook.com/profile.php?id=100009514147951">
+                        <i class="fab fa-facebook"></i></a>
+                </div>
+              
+               
+            </div>
+        </section>
+
+        <hr>
+
+         <!-- Section C -->
+        <section id="section-c">
+            <div class="content-wrap">
+                <h2 class="content-title">Recent Posts</h2>
+                <div class="recent-posts">
+                    <a href="#">Lorem ipsum dolor sit amet.</a>
+                    <div class="post-prop">
+                        <span>Posted On: 
+                            <i class="fa fa-calendar"></i>
+                            <span class="month">February </span>
+                            <span class="day">08, </span>
+                            <span class="year">2021</span>
+                        </span>
+                        <span> <i class="fa fa-clock"></i> 5:04pm</span>
+                    </div>
+                </div>
+
+                <div class="recent-posts">
+                    <a href="#">Lorem ipsum dolor sit amet.</a>
+                    <div class="post-prop">
+                        <span>Posted On: 
+                            <i class="fa fa-calendar"></i>
+                            <span class="month">February </span>
+                            <span class="day">08, </span>
+                            <span class="year">2021</span>
+                        </span>
+                        <span> <i class="fa fa-clock"></i> 5:04pm</span>
+                    </div>
+                </div>
+
+                <div class="recent-posts">
+                    <a href="#">Lorem ipsum dolor sit amet.</a>
+                    <div class="post-prop">
+                        <span>Posted On: 
+                            <i class="fa fa-calendar"></i>
+                            <span class="month">February </span>
+                            <span class="day">08, </span>
+                            <span class="year">2021</span>
+                        </span>
+                        <span> <i class="fa fa-clock"></i> 5:04pm</span>
+                    </div>
+                </div>
+
+                <div class="recent-posts">
+                    <a href="#">Lorem ipsum dolor sit amet.</a>
+                    <div class="post-prop">
+                        <span>Posted On: 
+                            <i class="fa fa-calendar"></i>
+                            <span class="month">February </span>
+                            <span class="day">08, </span>
+                            <span class="year">2021</span>
+                        </span>
+                       <span> <i class="fa fa-clock"></i> 5:04pm</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll Button -->
+    <button class="scroll" id="scroll-top">
+        <i class="fa fa-arrow-circle-up"></i>
+    </button>
+
+{% endblock %}
