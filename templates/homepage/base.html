@@ -15,17 +15,15 @@
     {% block title %}  <title></title> {% endblock %}
 </head>
 <body>
-
+    {% comment %} Header For All {% endcomment %}
     {% include 'homepage/header.html' %}
 
-
+    {% comment %} Body Content {% endcomment %}
     {% block content %}
 
-
-     
     {% endblock %}
 
-
+    {% comment %} Footer For All {% endcomment %}
     {% include 'homepage/footer.html' %}
 
      <!-- JavaScript -->
