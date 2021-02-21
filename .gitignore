@@ -1,4 +1,4 @@
-/static
-/haroffwebconsult/assets
-haroffwebconsult/settings.py
-/templates
+/static/
+/haroffwebconsult/assets/
+/haroffwebconsult/settings.py/
+/templates/
