@@ -47,16 +47,24 @@
                             <a href="https://github.com/Horlawhumy-dev?tab=overview&from=2021-02-01&to=2021-02-04" target="_blank">Github Profile</a>
                         </div>
                     </div>
-                    <hr>
-                    <h2>Message The Developer</h2>
-                    
-                    <form  class="contact-form" id="form">
-                        <input type="text"  name="fullname" placeholder="Your full names...">
-                        <input type="text" name="subject" placeholder="Subject or title...">
-                        <input type="email" name="email" placeholder="Type your email...">
-                        <textarea name="message" id="" cols="30" rows="10" class="text_area" placeholder="Type in your message..."></textarea>
-                        <button type="submit" class="btn_send">Send Message</button>
-                    </form>
+                    {% if fullname %}
+                        <center>
+                            <h3>Thanks {{ fullname }}!</h3>
+                            <p>We received your message and will respond shortly...</p>
+                        </center>
+                    {% else %}
+                        <hr>
+                        <h2>Message The Developer</h2>
+                        
+                        <form  class="contact-form" id="form">
+                            <input type="text"  name="fullname" placeholder="Your full names...">
+                            <input type="text" name="subject" placeholder="Subject or title...">
+                            <input type="email" name="email" placeholder="Type your email...">
+                            <textarea name="message" id="" cols="30" rows="10" class="text_area" placeholder="Type in your message..."></textarea>
+                            <button type="submit" class="btn_send">Send Message</button>
+                        </form>
+
+                    {% endif %}
                 </div>
             </div>
         </section>
