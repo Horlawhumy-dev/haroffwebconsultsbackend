@@ -10,13 +10,16 @@ def contact(request):
         email = request.POST['email']
         message = request.POST['message']
 
-        # Send Mail
-        send_mail(
-            fullname, # Fullname of messenger
-            subject, # Subject or title of the message 
-            email, # email of the messenger, from
-            ['harof.dev@gmail.comm',] # To mail
-        )
 
-        context = {'fullname': fullname}
-    return render(request, 'contact/contact.html', context)
+        print(fullname,subject,email,message)
+
+        # Send Mail
+        # send_mail(
+        #     fullname, # Fullname of messenger
+        #     subject, # Subject or title of the message 
+        #     email, # email of the messenger, from
+        #     ['harof.dev@gmail.comm',] # To mail
+        # )
+
+        # context = {'fullname': fullname}
+    return render(request, 'contact/contact.html',)

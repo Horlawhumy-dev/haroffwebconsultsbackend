@@ -111,7 +111,7 @@ p{
 #showcase .bg-image{
     position: absolute;
     top: 5rem;
-    background: #333 url('img/bg.jpg ');
+    background: #333 url('/static/images/bg.jpg ');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -212,7 +212,7 @@ p{
     background-color: transparent;
     border: 1px solid #2690d4;
     border-radius: 3px;
-    color: white;
+    color: #269;
     padding: 1em;
     font-weight: 600;
     margin-bottom: 1rem;
@@ -720,8 +720,9 @@ section#comment .comment-div{
 @keyframes right {
     0% {right:-1000px; opacity: 0;}
     100% {right: 0; opacity: 1;}
-
 }
+
+
 
 
 
