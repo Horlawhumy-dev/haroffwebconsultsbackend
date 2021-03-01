@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.core.mail  import send_mail
+from django.core.mail  import BadHeaderError, send_mail
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -7,19 +8,28 @@ def contact(request):
     if request.method == 'POST':
         fullname = request.POST['fullname']
         subject = request.POST['subject']
-        email = request.POST['email']
+        from_email = request.POST['email']
         message = request.POST['message']
 
-
-        print(fullname,subject,email,message)
+        # if subject and message and from_email:
+        #     try:
+        #         send_mail(subject, message, from_email, ['harafah97@gmail.com'], fail_silently=False)
+        #     except BadHeaderError:
+        #         return HttpResponse('Invalid header found.')
+        #     return render(request, 'contact/contact.html', {'fullname': fullname})
+    #    else:
+    #         # In reality we'd use a form class
+    #         # to get proper validation errors.
+    #         return HttpResponse('Make sure all fields are entered and valid.')
 
         # Send Mail
-        # send_mail(
-        #     fullname, # Fullname of messenger
-        #     subject, # Subject or title of the message 
-        #     email, # email of the messenger, from
-        #     ['harof.dev@gmail.comm',] # To mail
-        # )
+        send_mail(
+            fullname, # Fullname of messenger
+            subject, # Subject or title of the message 
+            from_email, # email of the messenger, from
+            ['harafah97@gmail.com',] # To mail
+        )
 
-        # context = {'fullname': fullname}
-    return render(request, 'contact/contact.html',)
+        return render(request, 'contact/contact.html', {'fullname': fullname})
+        
+    return render(request, 'contact/contact.html')

@@ -23,7 +23,8 @@
 
             <div class="footer-form">
                 <h3>Subscribe To Our Weekly Newsletter</h3>
-                <form>
+                <form method="POST">
+                    {% csrf_token %}
                     <input type="email" placeholder="Subscribe your mail...">
                     <button type="submit" class="btn-sub">Submit</button>
                 </form>
