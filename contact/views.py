@@ -11,25 +11,30 @@ def contact(request):
         from_email = request.POST['email']
         message = request.POST['message']
 
-        # if subject and message and from_email:
-        #     try:
-        #         send_mail(subject, message, from_email, ['harafah97@gmail.com'], fail_silently=False)
-        #     except BadHeaderError:
-        #         return HttpResponse('Invalid header found.')
-        #     return render(request, 'contact/contact.html', {'fullname': fullname})
-    #    else:
-    #         # In reality we'd use a form class
-    #         # to get proper validation errors.
-    #         return HttpResponse('Make sure all fields are entered and valid.')
+        # # Send Mail
+        # send_mail(
+        #     fullname, # Fullname of messenger
+        #     subject, # Subject or title of the message
+        #     message, # Content of the message
+        #     from_email, # email of the messenger, from
+        #     ['haroffwebconsults@gmail.com',] # To mail
+        # )
 
-        # Send Mail
-        send_mail(
-            fullname, # Fullname of messenger
-            subject, # Subject or title of the message 
-            from_email, # email of the messenger, from
-            ['harafah97@gmail.com',] # To mail
-        )
+        # return render(request, 'contact/contact.html', {'fullname': fullname})
 
-        return render(request, 'contact/contact.html', {'fullname': fullname})
+        if subject and message and from_email:
+            try:
+                send_mail(subject, message, from_email, ['haroffwebconsults@gmail.com',], fail_silently=False)
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return render(request, 'contact/contact.html', {'fullname': fullname})
+        else:
+            # In reality we'd use a form class
+            # to get proper validation errors.
+            return HttpResponse('Make sure all fields are entered and valid.')
+
+
+
+        
         
     return render(request, 'contact/contact.html')
