@@ -50,6 +50,53 @@ p{
 
 }
 
+.close-alert{
+    border: none;
+    padding: 0 .5em;
+    width: 30px;
+    height: 30px;
+    margin-left: 2em;
+    margin-top: .5em;
+    background-color: transparent;
+    outline: none;
+}
+
+.close-alert i{
+    font-size: 20px;
+    color: white;
+}
+
+.close-alert i:active{
+    color: black;
+}
+
+.alert-div{
+    display: flex;
+    justify-content: space-around;
+    width: 85%;
+    margin: 0em  auto;
+    background-color: #ff0000;
+    border-radius: 7px;
+    visibility: hidden;
+}
+
+
+.alert-div p{
+    text-align: center;
+    color: white;
+    padding: .5em;
+}
+
+.danger{
+    background-color: rgba(255, 0, 0, 0.781);
+    color: white;
+}
+
+.success{
+    background: #2690d4;
+    color: white;
+}
+
 center{
     color: #2690d4;
     text-align: center;
@@ -1093,6 +1140,10 @@ section#comment .comment-div{
         background-position: center;
         background-size: cover;
         /* height: 400px; */
+    }
+
+    .alert-div{
+        width: 95%;
     }
 
     .blog img{
