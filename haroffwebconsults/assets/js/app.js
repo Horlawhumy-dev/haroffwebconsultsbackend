@@ -40,3 +40,12 @@ scrollBtn.addEventListener('click', (e) => {
 
     e.preventDefault();
 })
+
+// Message Form
+const messageForm = document.getElementById("form");
+
+messageForm.addEventListener("submit", (e) => {
+    document.getElementById('message-container').style.display = 'none';
+    document.getElementById('center').style.display = 'block';
+    e.preventDefault();
+})

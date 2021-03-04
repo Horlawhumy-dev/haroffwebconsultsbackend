@@ -50,6 +50,47 @@ p{
 
 }
 
+center{
+    color: #2690d4;
+    text-align: center;
+    display: none;
+}
+
+center .container{
+    display: flex;
+    flex-direction: column;
+    margin: 1em auto;
+}
+
+center h3{
+    margin-bottom: -1em;
+}
+
+center .container p{
+    text-align: center;
+    color: red;
+}
+
+
+center .container a{
+    margin-top: .7em;
+    margin-left: .5em;
+    background: #2690d4;
+    color: white;
+    border-radius: 5px;
+    padding: .3em 1em 0em;
+    text-decoration: none;
+    box-shadow: 2px 2px 3px black;
+    width: 50%;
+    margin: 0 auto;
+}
+
+center .container a:active{
+    background-color: red;
+    color: white;
+
+}
+
 .btn{
     display: inline-block;
     background-color: #333;
