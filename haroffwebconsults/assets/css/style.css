@@ -61,6 +61,22 @@ p{
     outline: none;
 }
 
+.leave_comment{
+    background-color: white;
+    padding: 1em;
+    
+}
+
+.leave_comment a{
+    color:#2690d4;
+    text-decoration: none;
+
+}
+
+,.leave_comment a:hover{
+    color: red;
+}
+
 .close-alert i{
     font-size: 25px;
     color: white;

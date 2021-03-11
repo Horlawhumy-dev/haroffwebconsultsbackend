@@ -21,42 +21,37 @@
     <main id="main">
           <!-- Section C -->
         <section id="section-c" class="grid grid2">
-            <img src="{% static 'images/CEO.jpg' %}" alt="">
-            <div class="content-wrap">
-                <h2 class="content-title">About The Developer</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                    Aliquid vero, vel obcaecati nihil dolores rerum, 
-                    modi aliquam inventore delectus ut eligendi assumenda, natus distinctio cupiditate placeat nulla libero officiis ab.
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Vero magni eaque tempore suscipit ipsam error nemo fugiat vitae libero a ducimus repellendus exercitationem rerum,
-                    tenetur, neque doloremque obcaecati? Odio, nostrum.
-                </p>
-            </div>
+            {% if about_dev %}
+                <img src="{{ about_dev.Profile_pic.url }}" alt="">
+                <div class="content-wrap">
+                    <h2 class="content-title">{{ about_dev.Title | title }}</h2>
+                    <p>{{ about_dev.About1 }}</p>
+                    <br>
+                    <p>{{ about_dev.About2 }}</p>
+                </div>
 
-            <div class="about-links">
-                <h3>Profile: </h3>
-                <div>
-                    <a href="https://twitter.com/HAROF97">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </div>
+                <div class="about-links">
+                    <h3>Profile: </h3>
                     <div>
-                    <a href="https://www.linkedin.com/in/arafat-olayiwola-b52087191/">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
+                        <a href="https://twitter.com/HAROF97">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                        <div>
+                        <a href="https://www.linkedin.com/in/arafat-olayiwola-b52087191/">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://www.instagram.com/harof97/">
+                            <i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div>
+                        <a href="https://web.facebook.com/profile.php?id=100009514147951">
+                            <i class="fab fa-facebook"></i></a>
+                    </div>
                 </div>
-                <div>
-                    <a href="https://www.instagram.com/harof97/">
-                        <i class="fab fa-instagram"></i></a>
-                </div>
-                <div>
-                    <a href="https://web.facebook.com/profile.php?id=100009514147951">
-                        <i class="fab fa-facebook"></i></a>
-                </div>
-                
-                
-            </div>
+            {% endif %}
         </section>
 
         <hr>
