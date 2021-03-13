@@ -1,10 +1,12 @@
 {% extends 'homepage/base.html' %}
 {% load static %}
 
-
-
 {% block title %}
-    <title>About Developer| Haroff Web Consults</title>
+    {% if about_dev %}
+        <title>{{ about_dev.Title }} | Haroff Web Consults</title>
+    {% else %}
+        <title>About Developer | Haroff Web Consults</title>
+    {% endif %}
 {% endblock %}
 
 {% block content %}

@@ -71,7 +71,7 @@ WSGI_APPLICATION = 'haroffwebconsults.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'haroffwebconsults',
+        'NAME': 'haroffwebconsultsblogging',
         'USER': 'postgres',
         'PASSWORD': '12Facebook@6',
         'HOST': 'localhost',

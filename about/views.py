@@ -5,5 +5,5 @@ from .models import AboutDeveloper
 
 def about(request):
     about_dev = AboutDeveloper.objects.get(id=1)
-
+    
     return render(request, 'about/about.html', {'about_dev': about_dev})
