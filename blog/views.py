@@ -1,30 +1,32 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-
+from .models import Listing, BlogContent, BlogComment
 
 # Create your views here.
 def listing(request):
-    # listing = Listing.objects.all()
-    # context = { 
-    #     "listings": listing
-    #     }
-    return render(request, 'blog/listings.html')
+    listings = Listing.objects.all()
+    context = { 
+        "listings": listings
+        }
+    return render(request, 'blog/listings.html', context)
 
     
-def blog_view(request, pk):
+def blog_view(request):
     # Querying the blog database
-    # blog_post = Blog.objects.get(id=pk, go_online=True)
+    blog_post = BlogContent.objects.all()
     return render(request, 'blog/blog.html', { 'blog_post': blog_post })
 
 
 def comment_view(request):
     # comments = Comment.objects.all()
-    # if request.method == 'POST':
-    #     name = request.POST['fullname']
-    #     message = request.POST['message']
-        # if name and message:
-            # print(name, message)
-            # comment = Comment(fullname=name, message=message)
-            # comment.save()
+    if request.method == 'POST':
+        name = request.POST['fullname']
+        message = request.POST['message']
+        if name and message:
+            print(name, message)
+            comment = BlogComment(name=name, message=message)
+            comment.save()
+            return redirect('/blog/main')
+           
     # context = {'comments': comments}
     return render(request, 'blog/comment.html')

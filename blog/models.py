@@ -5,6 +5,7 @@ from datetime import datetime
 
 class Listing(models.Model):
     blog = models.CharField(max_length=100)
+    new_post = models.BooleanField(null=True)
     date_created = models.DateTimeField(auto_now=datetime, null=True)
     
     def __str__(self):
@@ -27,7 +28,7 @@ class BlogContent(models.Model):
         return self.title
 
 class BlogComment(models.Model):
-    main = models.ForeignKey('BlogContent', on_delete=models.CASCADE)
+    blog_title = models.ForeignKey('BlogContent', on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     message = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True, null=True)
