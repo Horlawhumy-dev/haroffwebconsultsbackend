@@ -5,6 +5,7 @@ from datetime import datetime
 
 class InfoBlog(models.Model):
     blog = models.CharField(max_length=100)
+    description = models.TextField(null=True)
     new_post = models.BooleanField(null=True)
     date_created = models.DateTimeField(auto_now=datetime, null=True)
     
@@ -13,7 +14,8 @@ class InfoBlog(models.Model):
 
 
 class Content(models.Model):
-    title = models.ForeignKey('InfoBlog', on_delete=models.CASCADE)
+    blog_category = models.ForeignKey('InfoBlog', null=True, on_delete=models.CASCADE)
+    blog_title = models.CharField(max_length=100, null=True)
     content1 = models.TextField(blank=True, null=True)
     content2 = models.TextField(blank=True, null=True)
     content3 = models.TextField(blank=True, null=True)
@@ -21,17 +23,17 @@ class Content(models.Model):
     content5 = models.TextField(blank=True, null=True)
     posted_by = models.CharField(max_length=100)
     content_pic = models.ImageField(blank=True, null=True)
-    online = models.BooleanField(null=True)
+    # online = models.BooleanField(null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
-        return self.title
+        return self.blog_title
 
 class Comment(models.Model):
-    blog_title = models.ForeignKey('Content', on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    message = models.TextField()
+    category = models.ForeignKey('Content', null=True, on_delete=models.CASCADE)
+    commentator_name = models.CharField(max_length=100, null=True)
+    message = models.TextField(null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.commentator_name

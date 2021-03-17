@@ -8,16 +8,16 @@
 {% block content %}
     <!-- Section C -->
     <section id="section-c">
-        {% if listings %}
+        {% if blog_listings %}
             <div class="content-wrap ">
                 <h2 class="content-title">Recent Posts</h2>
-                {% for listing in listings %}
+                {% for blog_listing in blog_listings %}
                     <div class="recent-posts left-anime">
-                        <a href="{% url 'blog:main' %}">{{ listing.blog | title }}</a>
+                        <a href="{% url 'blog:main' blog_listing.id %}">{{ blog_listing.blog | title }}</a>
                         <div class="post-prop">
                             <span>Posted On: 
                                 <i class="fa fa-calendar"></i>
-                                <span class="month">February </span>
+                                <span class="month"{{ blog_listing.month }} </span>
                                 <span class="day">08, </span>
                                 <span class="year">2021</span>
                             </span>

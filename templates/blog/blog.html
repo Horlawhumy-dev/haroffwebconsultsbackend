@@ -23,7 +23,7 @@
 
        <section id="blog-section" class="blog">
             {% if blog_post %}
-                <img src="{{ blog_post.blog_pic.url }}" alt="">
+                <img src="{{ blog_post.content_pic.url }}" alt="">
                 <div class="card-content-prop">
                                         
                         <div class="admin">
@@ -69,16 +69,18 @@
                     <hr>
                 
                 <div class="blog-wrap">
-                    <h2 class="blog-title">Blog Title</h2>
+                    <h2 class="blog-title">{{ blog_post.blog_title}}</h2>
                     <div class="blog-content">
-                        <p>{{ blog_post.blog1}}</p>
-                        <p>{{ blog_post.blog2}}</p>
-                        <p>{{ blog_post.blog3}}</p>
-                        <p>{{ blog_post.blog4}}</p>
-                        <p>{{ blog_post.blog5}}</p>
+                        <p>{{ blog_post.content1}}</p>
+                        <p>{{ blog_post.content2}}</p>
+                        <p>{{ blog_post.content3}}</p>
+                        <p>{{ blog_post.content4}}</p>
+                        <p>{{ blog_post.content5}}</p>
                     </div>
                 </div>
-            {% endif %}
+
+                <div>Thanks For Reading The Piece!!!</div>
+            
        </section>
 
         <!-- Section Comment -->
@@ -87,7 +89,7 @@
         <hr>
 
         <div class="leave_comment">
-            <a href="{% url 'blog:comment' %}">Leave Comment <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="{% url 'blog:comment' blog_post.id%}">Leave Comment <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
         </div>
         {% comment %} <div> {% endcomment %}
             {% comment %} {% for comment in comments %}
@@ -163,9 +165,7 @@
                 </form>
             </div>   
         </section> {% endcomment %}
-
-
-    
+        {% endif %}
     </main>
 
     <!-- Scroll Button -->

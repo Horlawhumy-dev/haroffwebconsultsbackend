@@ -10,35 +10,37 @@
 {% block content %}
     {% comment %} {% include 'blog/blog.html' %} {% endcomment %}
 
-    {% comment %} <div> {% endcomment %}
-            {% comment %} {% for comment in comments %}
-                <section id="comment">
-                    <div class="comment-div">
-                        <h5>{{ comments.fullname | title }}</h5>
-                        <p>{{ comments.message }}</p>
-                        <div class="buttons">
-                            <button class="btn-edit">
-                                <i class="fa fa-edit"></i>
-                            </button>
-                            <button class="btn-edit">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                            
-                            <div class="post-prop flex-date">
-                                <span><em>Posted On:
-                                    <i class="fa fa-calendar"></i>
-                                    <span class="month">February </span>
-                                    <span class="day">08, </span>
-                                    <span class="year">2021</span>
-                                    <span> <i class="fa fa-clock"></i> 5:04pm</span>
-                                </em></span>
-                            </div>
-                            
+    {% if comments %}
+    <div>
+        {% for comment in comments %}
+            <section id="comment">
+                <div class="comment-div">
+                    <h5>{{ comments.fullname | title }}</h5>
+                    <p>{{ comments.message }}</p>
+                    <div class="buttons">
+                        <button class="btn-edit">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <button class="btn-edit">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                        
+                        <div class="post-prop flex-date">
+                            <span><em>Posted On:
+                                <i class="fa fa-calendar"></i>
+                                <span class="month">February </span>
+                                <span class="day">08, </span>
+                                <span class="year">2021</span>
+                                <span> <i class="fa fa-clock"></i> 5:04pm</span>
+                            </em></span>
                         </div>
+                        
                     </div>
-                </section>
+                </div>
+            </section>
             {% endfor %}
-        </div> {% endcomment %}
+       
+    </div> 
 
     <!-- Alert When filling form -->
     <div class="alert-div" id="alert">
@@ -58,6 +60,7 @@
             </form>
         </div>   
     </section>
+    {% endif %}
 
 
     <section id="section-c">
