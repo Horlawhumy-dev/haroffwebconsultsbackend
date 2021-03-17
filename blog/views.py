@@ -4,7 +4,7 @@ from .models import *
 
 # Create your views here.
 def listing(request):
-    blog_listings = InfoBlog.objects.filter(new_post=True)
+    blog_listings = InfoBlog.objects.filter(new_post=True).order_by('id')
     context = { 
         "blog_listings": blog_listings
         }
@@ -18,16 +18,17 @@ def blog_view(request, pk):
 
 
 def comment_view(request, pk):
-    comments = Comment.objects.get(category_id=pk)
+    blog_post = Content.objects.filter(blog_category_id=pk)
+    comments = Comment.objects.filter(category_id=pk)
     # blog_post = Content.objects.get(blog_category_id=pk)
     if request.method == 'POST':
         name = request.POST['fullname']
         message = request.POST['message']
         if name and message:
-            print(name, message)
-            # comment = BlogComment(name=name, message=message)
-            # comment.save()
-            return redirect('/blog/main/blog.id')
+            # print(name, message)
+            comment = Comment(category=blog_post, commentator_name=name, message=message)
+            comment.save()
+            return redirect('/blog/main/3')
            
     context = {'comments': comments}
     return render(request, 'blog/comment.html', context)
