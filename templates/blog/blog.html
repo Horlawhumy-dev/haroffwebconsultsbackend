@@ -20,140 +20,100 @@
 
         <!-- Main -->
         <main id="main">
-
-        <section id="blog-section" class="blog">
-            
-                    <img src="{{ blog_post.content_pic.url }}" alt="">
-                    <div class="card-content-prop">
-                                            
-                            <div class="admin">
-                                Posted By: <i class="fa fa-user" aria-hidden="true"></i> {{ blog_post.posted_by | title}}</div>
-                            
-                            <div class="post-prop">
-                                <span>Posted On:
-                                    <i class="fa fa-calendar"></i>
-                                    <span class="month">February </span>
-                                    <span class="day">08, </span>
-                                    <span class="day">2021</span>
-                                </span>
-                                <span>
-                                    <i class="fa fa-clock"></i>
-                                    5:04pm</span>
-                            </div>
-
-                            <div class="about-links">
-                                <small>Share:</small>
-                                <div>
-                                    <a href="https://twitter.com/HAROF97">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </div>
-                                    <div>
-                                    <a href="https://www.linkedin.com/in/arafat-olayiwola-b52087191/">
-                                        <i class="fab fa-linkedin"></i>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="https://www.instagram.com/harof97/">
-                                        <i class="fab fa-instagram"></i></a>
-                                </div>
-                                <div>
-                                    <a href="https://web.facebook.com/profile.php?id=100009514147951">
-                                        <i class="fab fa-facebook"></i></a>
-                                </div>
-                            
-                            
-                            </div>
-                        </div>
-
-                        <hr>
-                    
-                    <div class="blog-wrap">
-                        <h2 class="blog-title">{{ blog_post.blog_title}}</h2>
-                        <div class="blog-content">
-                            <p>{{ blog_post.content1}}</p>
-                            <p>{{ blog_post.content2}}</p>
-                            <p>{{ blog_post.content3}}</p>
-                            <p>{{ blog_post.content4}}</p>
-                            <p>{{ blog_post.content5}}</p>
-                        </div>
+            <section id="blog-section" class="blog">
+                <img src="{{ blog_post.content_pic.url }}" alt="">
+                <div class="card-content-prop">         
+                    <div class="admin">
+                        Posted By: <i class="fa fa-user" aria-hidden="true"></i> {{ blog_post.posted_by | title}}
+                    </div>
+                    <div class="post-prop">
+                        <span>Posted On:
+                            <i class="fa fa-calendar"></i>
+                            <span class="month">February </span>
+                            <span class="day">08, </span>
+                            <span class="day">2021</span>
+                        </span>
+                        <span>
+                            <i class="fa fa-clock"></i>
+                            5:04pm
+                        </span>
                     </div>
 
-                    <div>Thanks For Reading The Piece!!!</div>
-                
-        </section>
-
-            <!-- Section Comment -->
-            <h4>Comments</h4>
-
-            <hr>
-
-            <div class="leave_comment">
-                <a href="{% url 'blog:comment' blog_post.id %}">Leave Comment <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-            {% comment %} <div> {% endcomment %}
-                {% comment %} {% for comment in comments %}
-                    <section id="comment">
-                        <div class="comment-div">
-                            <h5>{{ comments.fullname | title }}</h5>
-                            <p>{{ comments.message }}</p>
-                            <div class="buttons">
-                                <button class="btn-edit">
-                                    <i class="fa fa-edit"></i>
-                                </button>
-                                <button class="btn-edit">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                                
-                                <div class="post-prop flex-date">
-                                    <span><em>Posted On:
-                                        <i class="fa fa-calendar"></i>
-                                        <span class="month">February </span>
-                                        <span class="day">08, </span>
-                                        <span class="year">2021</span>
-                                        <span> <i class="fa fa-clock"></i> 5:04pm</span>
-                                    </em></span>
-                                </div>
-                                
-                            </div>
+                    <div class="about-links">
+                        <small>Share:</small>
+                        <div>
+                            <a href="https://twitter.com/HAROF97">
+                                <i class="fab fa-twitter"></i>
+                            </a>
                         </div>
-                    </section>
-                {% endfor %}
-            </div> {% endcomment %}
-            
-
-            <!-- Section Comment -->
-            <!-- <section id="comment">
-                <div class="comment-div">
-                    <h5>Name Of The Person</h5>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                        Libero beatae illum in omnis ullam aspernatur, 
-                    </p>
-                    <div class="buttons">
-                        <button class="btn-edit">
-                            <i class="fa fa-edit"></i>
-                        </button>
-                        <button class="btn-edit">
-                                <i class="fa fa-trash"></i>
-                        </button>
-                        <div class="post-prop flex-date">
-                            <span><em>Posted On:
-                                <i class="fa fa-calendar"></i>
-                                <span class="month">February </span>
-                                <span class="day">08, </span>
-                                <span class="year">2021</span>
-                                <span> <i class="fa fa-clock"></i> 5:04pm</span>
-                            </em></span>
+                        <div>
+                            <a href="https://www.linkedin.com/in/arafat-olayiwola-b52087191/">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
                         </div>
+                        <div>
+                            <a href="https://www.instagram.com/harof97/">
+                            <i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div>
+                            <a href="https://web.facebook.com/profile.php?id=100009514147951">
+                            <i class="fab fa-facebook"></i></a>
+                        </div>
+                    
+                    
                     </div>
                 </div>
-            </section> -->
+                <hr>
+                <div class="blog-wrap">
+                    <h2 class="blog-title">{{ blog_post.blog_title}}</h2>
+                    <div class="blog-content">
+                        <p>{{ blog_post.content1}}</p>
+                        <p>{{ blog_post.content2}}</p>
+                        <p>{{ blog_post.content3}}</p>
+                        <p>{{ blog_post.content4}}</p>
+                        <p>{{ blog_post.content5}}</p>
+                    </div>
+                </div>
+
+                <div>Thanks For Reading The Piece!!!</div>  
+            </section>
+            
+            <!-- Section Comment -->
+            <h4>Comments Section</h4>
+            <hr>
+            {% if comments %} 
+                <div>
+                    {% for user_comment in comments %}
+                        <section id="comment">
+                            <div class="comment-div">
+                                <h5>{{ user_comment.user | title }}</h5>
+                                <p>{{ user_comment.message}}</p>
+                                <div class="buttons">
+                                    <button class="btn-edit">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                    <button class="btn-edit">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                    
+                                    <div class="post-prop flex-date">
+                                        <span><em>Posted On:
+                                            <i class="fa fa-calendar"></i>
+                                            <span class="month">February </span>
+                                            <span class="day">08, </span>
+                                            <span class="year">2021</span>
+                                            <span> <i class="fa fa-clock"></i> 5:04pm</span>
+                                        </em></span>
+                                    </div>
+                                    
+                                </div>
+                        </section>
+                    {% endfor %}
+                </div> 
+            {% endif %}
             <br>
 
-            
-
-
-            {% comment %} <!-- Section A -->
+            <!-- Section A -->
             <section id="section-a" class="grid">
                 <div class="content-wrap">
                     <h2 class="content-title">Comment Section</h2>
@@ -164,8 +124,7 @@
                         <button type="submit" class="btn_send">Post Comment</button>
                     </form>
                 </div>   
-            </section> {% endcomment %}
-        
+            </section> 
         </main>
     {% endif %}
 

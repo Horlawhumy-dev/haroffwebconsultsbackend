@@ -1,6 +1,10 @@
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# loading variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')jli4_pmx$t96*l175hvh#p36ecl(&$fb$p7u*$axje5n$=bcn'
+SECRET_KEY = os.getenv('SECRET_KEYS')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -21,17 +25,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'homepage',
+    'about',
+    'blog',
+    'contact',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'homepage',
-    'about',
-    'blog',
-    'contact'
 ]
 
 MIDDLEWARE = [
@@ -70,12 +73,12 @@ WSGI_APPLICATION = 'haroffwebconsults.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'haroffwebblog',
-        'USER': 'postgres',
-        'PASSWORD': '12Facebook@6',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': os.getenv('DATABASE_ENGINE'),
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORDS'),
+        'HOST': os.getenv('LOCAL_HOST'),
+        'PORT': os.getenv('PORT'),
     }
 }
 
@@ -131,9 +134,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 
 # Email Settings
-EMIAL_BACKEND='django.core.mail.backends.smtp.Emailbackend' 
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_HOST_USER='haroffwebconsults@gmail.com'
-EMAIL_HOST_PASSWORD='haroffwebconsults2021'
+EMIAL_BACKEND=os.getenv('EMAIL_BACKEND')
+EMAIL_HOST=os.getenv('EMAIL_HOST')
+EMAIL_HOST_USER=os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS=True
-EMAIL_PORT=587
+EMAIL_PORT=os.getenv('EMAIL_PORT')

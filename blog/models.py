@@ -5,8 +5,6 @@ from datetime import datetime
 
 class InfoBlog(models.Model):
     blog = models.CharField(max_length=100)
-    description = models.TextField(null=True)
-    new_post = models.BooleanField(null=True)
     date_created = models.DateTimeField(auto_now=datetime, null=True)
     
     def __str__(self):
@@ -29,11 +27,12 @@ class Content(models.Model):
     def __str__(self):
         return self.blog_title
 
-class Comment(models.Model):
-    category = models.ForeignKey('Content', null=True, on_delete=models.CASCADE)
-    commentator_name = models.CharField(max_length=100, null=True)
+
+class UserCommentDB(models.Model):
+    blog_title = models.ForeignKey('Content', null=True, on_delete=models.CASCADE)
+    user = models.CharField(max_length=100, null=True)
     message = models.TextField(null=True)
-    date_created = models.DateTimeField(auto_now_add=True, null=True)
+    date_commented = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
-        return self.commentator_name
+        return self.user
