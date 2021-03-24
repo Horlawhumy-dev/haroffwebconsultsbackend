@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 
 class AboutDeveloper(models.Model):
@@ -8,7 +8,7 @@ class AboutDeveloper(models.Model):
     About2 = models.TextField(blank=True, null=True)
     go_online = models.BooleanField(null=True)
     Profile_pic = models.ImageField(blank=True, null=True)
-    Date_created = models.DateTimeField(auto_now_add=True, null=True)
+    Date_created = models.DateTimeField(default=timezone.now, null=True)
 
     def __str__(self):
         return self.Title

@@ -15,14 +15,14 @@ def listing(request):
 def blog_view(request, pk):
     # Querying the blog database
     blog_post = Content.objects.get(blog_category_id=pk)
-    comments = UserCommentDB.objects.filter(blog_title_id=pk)
+    comments = UserCommentDB.objects.filter(blog_title_id=pk).order_by('-id')
     blog_title = UserCommentDB.objects.filter(blog_title_id=blog_post.id)
     
     if request.method == 'POST':
         name = request.POST['fullname']
         message = request.POST['message']
         if name and message:
-            print(name, message)
+            # print(name, message)
             user_comment = UserCommentDB(blog_title=blog_post, user=name, message=message)
             user_comment.save()
             return HttpResponseRedirect(request.path_info)
@@ -32,19 +32,22 @@ def blog_view(request, pk):
     }
     return render(request, 'blog/blog.html', context)
 
+def updateComment(request, pk):
+    comment = UserCommentDB.objects.get(blog_title_id=pk)
+    user_comment = UserCommentDB(instance=comment)
+    if request.method == 'POST':
+        user_comment = UserCommentDB(request.POST, instance=comment)
+        user_comment.save()
+        return HttpResponseRedirect(request.path_info)
+    return render(request, 'blog/blog.html')
 
-# def comment_view(request, pk):
-#     blog_post = Content.objects.get(blog_category_id=pk)
-#     user_comment = UserComment.objects.get(header_id=pk)
-#     # blog_post = Content.objects.get(blog_category_id=pk)
-#     if request.method == 'POST':
-#         name = request.POST['fullname']
-#         message = request.POST['message']
-#         if name and message:
-#             # print(name, message)
-#             user_comment = UserComment(category=blog_post, commentator_name=name, message=message)
-#             user_comment.save()
-#             return redirect(f"/blog/main/{blog_post.blog_category_id}")
-           
-#     context = {'user_comments': user_comment}
-#     return render(request, 'blog/comment.html', context)
+
+def deleteComment(request, pk):
+
+    comment = UserCommentDB.objects.filter(blog_title_id=pk)
+    if comment:
+        comment.delete()
+        return HttpResponseRedirect(request.path_info)
+    return render(request, 'blog/blog.html')
+
+    

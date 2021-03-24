@@ -89,39 +89,38 @@
             </div>
 
             <!-- Section C -->
-            <section id="section-c">
-                    <div class="content-wrap ">
-                       <h2 class="content-title">Recent Posts</h2>
-                            {% for blog_listing in blog_listings %}
-                                <div class="recent-posts left-anime">
-                                    <a href="#">{{ blog_listing.title | title }} </a>
-                                    <div class="post-prop">
-                                        <span>Posted On: 
-                                            <i class="fa fa-calendar"></i>
-                                            <span class="month">February </span>
-                                            <span class="day">08, </span>
-                                            <span class="year">2021</span>
-                                        </span>
-                                        <span> <i class="fa fa-clock"></i> 5:04pm</span>
-                                    </div>
-                                </div>
-                            {% endfor %}
+    <section id="section-c">
+        {% if blog_listings %}
+            <div class="content-wrap ">
+                <h2 class="content-title">HaroffWebConsults Blogs</h2>
+                {% for blog_listing in blog_listings reversed %}
+                    <div class="recent-posts left-anime">
+                        <a href="{% url 'blog:main' blog_listing.id %}">{{ blog_listing.title | title }}</a>
+                        <div class="post-prop">
+                            <i class="fa fa-calendar"></i>
+                            <span class="month">{{ blog_listing.date_created | date:"F " }} </span>
+                            <span class="day">{{ blog_listing.date_created | date:" d, " }} </span>
+                            <span class="year">{{ blog_listing.date_created | date:"  Y" }} </span>
+                           <span>By: <i class="fa fa-user"></i> {{ blog_listing.author | title }}</span>
+                        </div>
                     </div>
+                {% endfor %}
+            </div>
+        {% endif %}
 
-                <!-- Navigation -->
-                <!-- <div class="carousel">
-                    <div class="chevron">
-                        <i class="fa fa-chevron-left"></i>
-                    </div>
-                    <div class="circle-nav">1</div>
-                    <div class="circle-nav">2</div>
-                    <div class="circle-nav">3</div>
-                    <div class="chevron">
-                        <i class="fa fa-chevron-right"></i>
-                    </div>
-                </div> -->
-            </section>
-
+        <!-- Navigation -->
+        <!-- <div class="carousel">
+            <div class="chevron">
+                <i class="fa fa-chevron-left"></i>
+            </div>
+            <div class="circle-nav">1</div>
+            <div class="circle-nav">2</div>
+            <div class="circle-nav">3</div>
+            <div class="chevron">
+                <i class="fa fa-chevron-right"></i>
+            </div>
+        </div> -->
+    </section>
 
             
 

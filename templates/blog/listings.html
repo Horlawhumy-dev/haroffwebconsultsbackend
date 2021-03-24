@@ -15,13 +15,11 @@
                     <div class="recent-posts left-anime">
                         <a href="{% url 'blog:main' blog_listing.id %}">{{ blog_listing.blog | title }}</a>
                         <div class="post-prop">
-                            <span>Posted On: 
-                                <i class="fa fa-calendar"></i>
-                                <span class="month"{{ blog_listing.month }} </span>
-                                <span class="day">08, </span>
-                                <span class="year">2021</span>
-                            </span>
-                            <span> <i class="fa fa-clock"></i> 5:04pm</span>
+                            <i class="fa fa-calendar"></i>
+                            <span class="month">{{ blog_listing.date_created | date:"F " }} </span>
+                            <span class="day">{{ blog_listing.date_created | date:" d, " }} </span>
+                            <span class="year">{{ blog_listing.date_created | date:"  Y" }} </span>
+                            <span>By: <i class="fa fa-user"></i> {{ blog_listing.author | title }}</span>
                         </div>
                     </div>
                 {% endfor %}

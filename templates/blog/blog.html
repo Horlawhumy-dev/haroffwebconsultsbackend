@@ -24,19 +24,13 @@
                 <img src="{{ blog_post.content_pic.url }}" alt="">
                 <div class="card-content-prop">         
                     <div class="admin">
-                        Posted By: <i class="fa fa-user" aria-hidden="true"></i> {{ blog_post.posted_by | title}}
+                        Author:  <i class="fa fa-user" aria-hidden="true"></i> {{ blog_post.author | title}}
                     </div>
                     <div class="post-prop">
-                        <span>Posted On:
-                            <i class="fa fa-calendar"></i>
-                            <span class="month">February </span>
-                            <span class="day">08, </span>
-                            <span class="day">2021</span>
-                        </span>
-                        <span>
-                            <i class="fa fa-clock"></i>
-                            5:04pm
-                        </span>
+                        <i class="fa fa-calendar"></i>
+                        <span class="month">{{ blog_post.date_created | date:"F " }} </span>
+                        <span class="day">{{ blog_post.date_created | date:" d, " }} </span>
+                        <span class="year">{{ blog_post.date_created | date:"  Y" }} </span>
                     </div>
 
                     <div class="about-links">
@@ -90,20 +84,23 @@
                                 <p>{{ user_comment.message}}</p>
                                 <div class="buttons">
                                     <button class="btn-edit">
-                                        <i class="fa fa-edit"></i>
+                                        <a href="{% url 'blog:update_comment' user_comment.blog_title_id %}" >
+                                            <i class="fa fa-edit"></i>
+                                        </a>
                                     </button>
+
                                     <button class="btn-edit">
-                                        <i class="fa fa-trash"></i>
+                                        <a href="{% url 'blog:delete_comment' user_comment.id %}" > 
+                                            <i class="fa fa-trash"></i>
+                                        </a>
                                     </button>
                                     
                                     <div class="post-prop flex-date">
-                                        <span><em>Posted On:
-                                            <i class="fa fa-calendar"></i>
-                                            <span class="month">February </span>
-                                            <span class="day">08, </span>
-                                            <span class="year">2021</span>
-                                            <span> <i class="fa fa-clock"></i> 5:04pm</span>
-                                        </em></span>
+                                        <i class="fa fa-calendar"></i>
+                                        <span class="month">{{ user_comment.date_commented | date:"F " }} </span>
+                                        <span class="day">{{ user_comment.date_commented  | date:" d, " }} </span>
+                                        <span class="year">{{ user_comment.date_commented | date:"  Y" }} </span>
+                                        <span> <i class="fa fa-clock"></i> 5:04pm</span>
                                     </div>
                                     
                                 </div>
