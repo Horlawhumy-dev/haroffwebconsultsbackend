@@ -43,7 +43,7 @@ def updateComment(request, pk):
 
 
 def deleteComment(request, pk):
-
+    blog_post = Content.objects.get(blog_category_id=pk)
     comment = UserCommentDB.objects.filter(blog_title_id=pk)
     if comment:
         comment.delete()
