@@ -5,5 +5,5 @@ from . import views
 
 app_name = 'about'
 urlpatterns = [
-    path('', views.about, name="index")
+    path('dev/', views.about, name="index")
 ] 

@@ -63,7 +63,7 @@
             <section id="section-c">
                 {% if blog_listings %}
                     <div class="content-wrap ">
-                        <h2 class="content-title">HaroffWebConsults Blogs</h2>
+                        <h2 class="content-title">Haroff Web Consults Blogs</h2>
                         {% for blog_listing in blog_listings reversed %}
                             <div class="recent-posts left-anime">
                                 <a href="{% url 'blog:main' blog_listing.id %}">{{ blog_listing.title | title }}</a>
@@ -120,4 +120,6 @@
         <i class="fa fa-arrow-circle-up"></i>
     </button>
 
+     <!-- JavaScript -->
+    <script src="{% static 'js/app.js' %}"></script>
 {% endblock %}

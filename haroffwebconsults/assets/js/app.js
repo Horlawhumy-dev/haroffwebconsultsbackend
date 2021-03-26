@@ -1,9 +1,6 @@
-
 // Hamburger Toggling
-
 // opening Button
-const openHamburger = document.getElementById('open');
-
+let openHamburger = document.getElementById('open');
 let ulLinks = document.getElementById('links');
 
 openHamburger.addEventListener("click", () => {
@@ -12,18 +9,19 @@ openHamburger.addEventListener("click", () => {
 })
 
 // Closing Button
-const closeHamburger = document.getElementById('close');
-
+let closeHamburger = document.getElementById('close');
 
 closeHamburger.addEventListener("click", () => {
     // console.log(ulLinks) 
     ulLinks.classList.toggle('toggle-close');
 })
 
-// Scrolling Top Button
-const scrollBtn = document.getElementById('scroll-top');
 
-scrollBtn.addEventListener('click', (e) => {
+
+// Scrolling Top Button
+let scrollBtn = document.getElementById('scroll-top');
+
+scrollBtn.addEventListener('click', () => {
     // document.documentElement.scrollTop = '0';
     currentYOffset = self.pageYOffset;
     initYOffset = currentYOffset;
@@ -38,14 +36,13 @@ scrollBtn.addEventListener('click', (e) => {
         }
     }, 15);
 
-    e.preventDefault();
 })
 
-// Message Form
-const messageForm = document.getElementById("form");
 
-messageForm.addEventListener("submit", (e) => {
-    document.getElementById('message-container').style.display = 'none';
-    document.getElementById('center').style.display = 'block';
-    e.preventDefault();
-})
+
+
+
+
+
+
+

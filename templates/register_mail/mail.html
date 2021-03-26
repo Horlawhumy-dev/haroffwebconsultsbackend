@@ -1,0 +1,68 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Mail Subscription | Haroff Web Consults</title>
+{% endblock %}
+
+{% block content %}
+   
+    
+     <!-- Links Tags -->
+    <div class="links-tag">
+        <h4><a href="{% url 'homepage:index' %}"><i class="fa fa-home"></i> Home</a></h4>
+    </div>
+
+    <!-- Main -->
+    <main id="main">
+          <!-- Section C -->
+        <section id="section-c" class="grid grid2">
+           <div class="content-wrap">
+                <h2 class="content-title">Thanks For Subscribing!!!</h2>
+                <p>Your mail has been stored to our weekly newsletter database. Do navigate back homepage using link right above you.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        {% comment %} <!-- Section C -->
+        <section id="section-c">
+            {% if blog_listings %}
+                <div class="content-wrap ">
+                    <h2 class="content-title">HaroffWebConsults Blogs</h2>
+                    {% for blog_listing in blog_listings reversed %}
+                        <div class="recent-posts left-anime">
+                            <a href="{% url 'blog:main' blog_listing.id %}">{{ blog_listing.title | title }}</a>
+                            <div class="post-prop">
+                                <i class="fa fa-calendar"></i>
+                                <span class="month">{{ blog_listing.date_created | date:"F " }} </span>
+                                <span class="day">{{ blog_listing.date_created | date:" d, " }} </span>
+                                <span class="year">{{ blog_listing.date_created | date:"  Y" }} </span>
+                                <span>By: <i class="fa fa-user"></i> {{ blog_listing.author | title }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- Navigation -->
+            <!-- <div class="carousel">
+                <div class="chevron">
+                    <i class="fa fa-chevron-left"></i>
+                </div>
+                <div class="circle-nav">1</div>
+                <div class="circle-nav">2</div>
+                <div class="circle-nav">3</div>
+                <div class="chevron">
+                    <i class="fa fa-chevron-right"></i>
+                </div>
+            </div> -->
+        </section> {% endcomment %}
+    </main>
+
+    <!-- Scroll Button -->
+    <button class="scroll" id="scroll-top">
+        <i class="fa fa-arrow-circle-up"></i>
+    </button>
+
+{% endblock %}

@@ -1,4 +1,5 @@
 {% extends 'homepage/base.html' %}
+{% load static %}
 
 {% block title %}
     <title>Contact Developer| Haroff Web Consults</title>
@@ -18,16 +19,21 @@
         <section id="section-a" class="grid">
             <div class="content-wrap">
                 {% if fullname %}
-                     <center id="center">
-                        <h3>Thanks <strong>{{ fullname }}!!</strong></h3>
+                    <center id="center">
+                        <h3>Thanks <strong>{{ fullname }} !!</strong></h3>
                         <div class="container">
                             <p>We received your mail and will reply as soon as possible...</p>
-                            <a href="{% url 'homepage:index' %}">Navigate To Homepage</a>
+                            <a href="{% url 'homepage:index' %}">Back To Home!!</a>
                         </div>  
-                </center>
+                    </center>
                
                 {% else %}
-                  
+                    <br>
+                    <!-- Alert When filling form -->
+                    <div class="alert-div" id="div-al">
+                        <p>Please all fields are required!</p>
+                        <button class="close-alert" id="btn"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+                    </div>
                     <div  id="message-container">
                         <h2 class="content-title">Contact Developer</h2>
                         <div class="content-text">
@@ -58,14 +64,7 @@
                                 </div>
                             </div>
                             <hr>
-                         
-                            <!-- Alert When filling form -->
-                            <div class="alert-div" id="alert">
-                                <p>Please all fields are required!</p>
-                                <button class="close-alert" id="alert-btn"><i class="fa fa-window-close" aria-hidden="true"></i></button>
-                            </div>
-                            <h2>Message The Developer</h2>
-                            
+                            <h2>Get In Touch With The Developer</h2>
                             <form  class="contact-form" id="form" method="POST">
                                 {% csrf_token %}
                                 <input type="text"  name="fullname" placeholder="Your full names..." id="sender">
@@ -145,5 +144,6 @@
         <i class="fa fa-arrow-circle-up"></i>
     </button>
 
-
+    <!-- JavaScript -->
+    <script src="{% static 'js/contact.js' %}"></script>
 {% endblock %}

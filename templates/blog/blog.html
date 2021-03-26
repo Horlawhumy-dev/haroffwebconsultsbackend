@@ -113,6 +113,13 @@
             <!-- Section A -->
             <section id="section-a" class="grid">
                 <div class="content-wrap">
+                    <br>
+                    <!-- Alert When filling form -->
+                    <div class="alert-div" id="div-al">
+                        <p>Please all fields are required!</p>
+                        <button class="close-alert" id="btn"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+                    </div>
+                    <hr>
                     <h2 class="content-title">Comment Section</h2>
                     <form  action="" class="contact-form" id="form" method="POST">
                         {% csrf_token %}
@@ -130,4 +137,6 @@
         <i class="fa fa-arrow-circle-up"></i>
     </button>
 
+    <!-- JavaScript -->
+    <script src="{% static 'js/blog.js' %}"></script>
 {% endblock %}

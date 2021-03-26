@@ -2,10 +2,10 @@
 {% load static %}
 
 {% block title %}
-    {% if about_dev %}
-        <title>{{ about_dev.Title }} | Haroff Web Consults</title>
+    {% if about %}
+        <title>{{ about.headlines }}</title>
     {% else %}
-        <title>About Developer | Haroff Web Consults</title>
+        <title>About H-W-C</title>
     {% endif %}
 {% endblock %}
 
@@ -16,20 +16,20 @@
     <div class="links-tag">
         <h4><a href="{% url 'homepage:index' %}"><i class="fa fa-home"></i> Home</a></h4>
         <div> <i class="fa fa-chevron-right" aria-hidden="true"></i></div>
-        <h4><a href="{% url 'about:index' %}"><i class="fa fa-user" aria-hidden="true"></i> About</a></h4>
+        <h4><a href="{% url 'about_blog:index' %}">About H-W-C</a></h4>
     </div>
 
     <!-- Main -->
     <main id="main">
           <!-- Section C -->
         <section id="section-c" class="grid grid2">
-            {% if about_dev %}
-                <img src="{{ about_dev.Profile_pic.url }}" alt="">
+            {% if about %}
+                {% comment %} <img src="{{ about_dev.Profile_pic.url }}" alt=""> {% endcomment %}
                 <div class="content-wrap">
-                    <h2 class="content-title">{{ about_dev.Title | title }}</h2>
-                    <p>{{ about_dev.About1 }}</p>
+                    <h2 class="content-title">{{ about.headlines | title }}</h2>
+                    <p>{{ about.about_blog1 }}</p>
                     <br>
-                    <p>{{ about_dev.About2 }}</p>
+                    <p>{{ about.about_blog2 }}</p>
                 </div>
 
                 <div class="about-links">

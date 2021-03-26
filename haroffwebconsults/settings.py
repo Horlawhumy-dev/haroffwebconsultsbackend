@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'about',
     'blog',
     'contact',
-    'about_blog'
+    'about_blog',
+    'register_mail',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
