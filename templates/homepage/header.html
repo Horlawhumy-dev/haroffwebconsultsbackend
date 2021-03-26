@@ -11,7 +11,7 @@
                     <a href="{% url 'homepage:index' %}" target="_blank">HOME</a>
                 </li>
                 <li>
-                    <a href="{% url 'about:index' %}" target="_blank">ABOUT</a>
+                    <a href="{% url 'about:index' %}" target="_blank">ABOUT DEV</a>
                 </li>
                 <li>
                     <a href="{% url 'blog:index' %}" target="_blank">BLOG</a>
@@ -36,6 +36,6 @@
                 Vel reiciendis sequi dolorem suscipit illum culpa beatae velit 
                 cum dolores autem!</p>
             </div>
-            <a href="#section-b" class="btn btn-block">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="{% url 'about_blog:index' %}" class="btn btn-block">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
         </div>
     </header>

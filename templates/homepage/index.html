@@ -16,63 +16,34 @@
     <!-- Main -->
     <main id="main">
         {% if blogs %}
-            <!-- Section A -->
-            <section id="section-a" class="grid">
-                <div class="content-wrap right-anime">
-                    <h2 class="content-title">Web & Application Development</h2>
-                    <div class="content-text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel repudiandae consequuntur earum, corporis sapiente dolor enim quo dolore 
-                        accusantium id consectetur incidunt fuga eius, 
-                        molestiae vitae optio. Maxime fuga similique earum, 
-                        id unde labore neque architecto accusamus soluta rem doloremque!</p>
+            {% if about_content %}
+                <!-- Section A -->
+                <section id="section-a" class="grid">
+                    <div class="content-wrap right-anime">
+                        <h2 class="content-title">{{ about_content.headlines | upper }}</h2>
+                        <div class="content-text">
+                            <p>{{ about_content.about_content }}</p>
+                        </div>
                     </div>
-                </div>
-            </section>
-
+                </section>
+            {% endif %}
             <!-- Secton B -->
             <section id="section-b" class="grid">
-                
-                    <ul>
-                        {% for blog in blogs %}
-                            <li class="left-anime">
-                                <div class="card">
-                                    <img src="{% static 'images/posts.jpg' %}" alt="">
-                                    <div class="card-content">
-                                        <h3>{{ blog.title | upper}}</h3>
-                                        <p>{{ blog.description }}</p>
-                                        <a href="#">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                        {% endfor %}
-                        {% comment %} <li class="top-anime">
+                <ul>
+                    {% for blog in blogs %}
+                        <li class="left-anime">
                             <div class="card">
                                 <img src="{% static 'images/posts.jpg' %}" alt="">
                                 <div class="card-content">
-                                    <h3>Mobile Applications</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Explicabo libero impedit ducimus quos eos vero provident laboriosam reiciendis?
-                                        Consequatur eius, voluptas dolor laboriosam hic quo incidunt cum mollitia et illum?
-                                    </p>
-                                    <a href="#">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                    <h3>{{ blog.title | upper}}</h3>
+                                    <p>{{ blog.description }}</p>
+                                    <a href="{% url 'blog:main' blog.id %}">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </li>
-                        <li class="right-anime">
-                            <div class="card">
-                                <img src="{% static 'images/posts.jpg' %}" alt="">
-                                <div class="card-content"> 
-                                    <h3>Tech Marketing</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Explicabo libero impedit ducimus quos eos vero provident laboriosam reiciendis?
-                                        Consequatur eius, voluptas dolor laboriosam hic quo incidunt cum mollitia et illum?
-                                    </p>
-                                    <a href="#">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </li> {% endcomment %}
-                    </ul>
-            
+                    {% endfor %}
+                </ul>
+        
             </section>
 
             <!-- Navigation -->
@@ -89,58 +60,58 @@
             </div>
 
             <!-- Section C -->
-    <section id="section-c">
-        {% if blog_listings %}
-            <div class="content-wrap ">
-                <h2 class="content-title">HaroffWebConsults Blogs</h2>
-                {% for blog_listing in blog_listings reversed %}
-                    <div class="recent-posts left-anime">
-                        <a href="{% url 'blog:main' blog_listing.id %}">{{ blog_listing.title | title }}</a>
-                        <div class="post-prop">
-                            <i class="fa fa-calendar"></i>
-                            <span class="month">{{ blog_listing.date_created | date:"F " }} </span>
-                            <span class="day">{{ blog_listing.date_created | date:" d, " }} </span>
-                            <span class="year">{{ blog_listing.date_created | date:"  Y" }} </span>
-                           <span>By: <i class="fa fa-user"></i> {{ blog_listing.author | title }}</span>
-                        </div>
+            <section id="section-c">
+                {% if blog_listings %}
+                    <div class="content-wrap ">
+                        <h2 class="content-title">HaroffWebConsults Blogs</h2>
+                        {% for blog_listing in blog_listings reversed %}
+                            <div class="recent-posts left-anime">
+                                <a href="{% url 'blog:main' blog_listing.id %}">{{ blog_listing.title | title }}</a>
+                                <div class="post-prop">
+                                    <i class="fa fa-calendar"></i>
+                                    <span class="month">{{ blog_listing.date_created | date:"F " }} </span>
+                                    <span class="day">{{ blog_listing.date_created | date:" d, " }} </span>
+                                    <span class="year">{{ blog_listing.date_created | date:"  Y" }} </span>
+                                <span>By: <i class="fa fa-user"></i> {{ blog_listing.author | title }}</span>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-            </div>
-        {% endif %}
+                {% endif %}
 
-        <!-- Navigation -->
-        <!-- <div class="carousel">
-            <div class="chevron">
-                <i class="fa fa-chevron-left"></i>
-            </div>
-            <div class="circle-nav">1</div>
-            <div class="circle-nav">2</div>
-            <div class="circle-nav">3</div>
-            <div class="chevron">
-                <i class="fa fa-chevron-right"></i>
-            </div>
-        </div> -->
-    </section>
-
-            
-
-            <!-- Section D -->
-            <section id="section-d" class="grid">
-                <div class="box">
-                    <h2 class="content-title">About The Developer</h2>
-                    <p>Lorem ipsum dolor sit amet  consectetur adipisicing elit.
-                    Qui sapiente reiciendis explicabo nemo similique animi ex a, fugit magnam incidunt!
-                    </p>
-                    <a href="#">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                </div>
-                <div class="box">
-                    <h2 class="content-title">Contact Developer</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Qui sapiente reiciendis explicabo nemo similique animi ex a, fugit magnam incidunt!
-                    </p>
-                    <a href="#">Reach Developer <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                </div>
+                <!-- Navigation -->
+                <!-- <div class="carousel">
+                    <div class="chevron">
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <div class="circle-nav">1</div>
+                    <div class="circle-nav">2</div>
+                    <div class="circle-nav">3</div>
+                    <div class="chevron">
+                        <i class="fa fa-chevron-right"></i>
+                    </div>
+                </div> -->
             </section>
+
+                    
+
+                <!-- Section D -->
+                <section id="section-d" class="grid">
+                    <div class="box">
+                        <h2 class="content-title">About The Developer</h2>
+                        <p>Lorem ipsum dolor sit amet  consectetur adipisicing elit.
+                        Qui sapiente reiciendis explicabo nemo similique animi ex a, fugit magnam incidunt!
+                        </p>
+                        <a href="{% url 'about:index' %}">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="box">
+                        <h2 class="content-title">Contact Developer</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Qui sapiente reiciendis explicabo nemo similique animi ex a, fugit magnam incidunt!
+                        </p>
+                        <a href="{% url 'contact:index' %}">Reach Developer <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </section>
         {% endif %}
     </main>
 
