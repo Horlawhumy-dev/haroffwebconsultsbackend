@@ -113,12 +113,19 @@
             <!-- Section A -->
             <section id="section-a" class="grid">
                 <div class="content-wrap">
+                    {% if messages.ERROR %}
                     <br>
-                    <!-- Alert When filling form -->
-                    <div class="alert-div" id="div-al">
-                        <p>Please all fields are required!</p>
-                        <button class="close-alert" id="btn"><i class="fa fa-window-close" aria-hidden="true"></i></button>
-                    </div>
+                        <!-- Alert When filling form -->
+                        <div class="alert-div" id="div-al">
+                            {% for message in messages %}
+                            <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                                {{ message }}
+                            </p>
+                            <button class="close-alert" id="btn"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                     <hr>
                     <h2 class="content-title">Comment Section</h2>
                     <form  action="" class="contact-form" id="form" method="POST">
@@ -136,7 +143,4 @@
     <button class="scroll" id="scroll-top">
         <i class="fa fa-arrow-circle-up"></i>
     </button>
-
-    <!-- JavaScript -->
-    <script src="{% static 'js/blog.js' %}"></script>
 {% endblock %}

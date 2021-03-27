@@ -15,25 +15,38 @@
 
     <!-- Main -->
     <main id="main">
-        {% if messages %}
           <!-- Section C -->
         <section id="section-c" class="grid grid2">
-           <div class="content-wrap">
-                <h2 class="content-title">Thanks For Subscribing!!!</h2>
-                {% for message in messages %}
-                    
-                    <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
-                {% endfor %}
-            </div>
+            {% if messages.SUCCESS %}
+                <div class="content-wrap">
+                    <h2 class="content-title">Thanks For Subscribing!!!</h2>
+                    {% for message in messages %}
+                        <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                            {% comment %} {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}{% endif %} {% endcomment %}
+                            {{ message }}
+                        </p>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="content-wrap">
+                    <h2 class="content-title">Mail Not Found!!!</h2>
+                    {% for message in messages %}
+                        <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                            {{ message }}
+                        </p>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </section>
-        {% endif %}
+       
         <hr>
 
-        {% comment %} <!-- Section C -->
+        <!-- Section C -->
         <section id="section-c">
             {% if blog_listings %}
                 <div class="content-wrap ">
-                    <h2 class="content-title">HaroffWebConsults Blogs</h2>
+                    <h2 class="content-title">Haroff Web Consults Blogs</h2>
                     {% for blog_listing in blog_listings reversed %}
                         <div class="recent-posts left-anime">
                             <a href="{% url 'blog:main' blog_listing.id %}">{{ blog_listing.title | title }}</a>
@@ -61,7 +74,7 @@
                     <i class="fa fa-chevron-right"></i>
                 </div>
             </div> -->
-        </section> {% endcomment %}
+        </section>
     </main>
 
     <!-- Scroll Button -->

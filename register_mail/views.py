@@ -2,10 +2,12 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect
 
 from .models import SubscriberMail
+from homepage.models import ShowcaseBlog
 from django.contrib import messages
 
 # Create your views here.
 def register_mail(request):
+    blog_listing = ShowcaseBlog.objects.filter(list=True)
     if request.method == 'POST':
         mail = request.POST['mail']
         if mail != '':
@@ -15,4 +17,8 @@ def register_mail(request):
             return redirect('/register/mail')
         else:
             messages.add_message(request, messages.ERROR, 'Please add your mail in the form.')
-    return render(request, 'register_mail/mail.html')
+    
+    context = {
+        "blog_listings": blog_listing
+    }
+    return render(request, 'register_mail/mail.html', context)

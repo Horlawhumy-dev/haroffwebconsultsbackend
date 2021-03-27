@@ -80,7 +80,7 @@ button.close-alert:active{
     padding: .5em;
     background-color: #ff0000;
     border-radius: 7px;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 

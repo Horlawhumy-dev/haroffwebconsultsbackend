@@ -18,30 +18,31 @@
         <!-- Section A -->
         <section id="section-a" class="grid">
             <div class="content-wrap">
-                {% if fullname and messages %}
+                {% if fullname and messages.SUCCESS %}
                     <center id="center">
                     <h3>Thanks <strong>{{ fullname }} !!</strong></h3>
                     {% for message in messages %}
                         <div class="container">
-                            <p>
-                                {{ message.success }}
+                            <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %} {{ message }} {% endif %}
                             </p>
                             <a href="{% url 'homepage:index' %}">Back To Home!!</a>
                         </div> 
                     {% endfor %} 
                     </center>
-               
                 {% else %}
                     <br>
-                    {% if messages %}
+                    <!-- Alert When filling form -->
+                    <div class="alert-div" id="div-al">
                         {% for message in messages %}
-                        <!-- Alert When filling form -->
-                        <div class="alert-div" id="div-al">
-                            <p>{{ messsge.error }}</p>
-                            <button class="close-alert" id="btn"><i class="fa fa-window-close" aria-hidden="true"></i></button>
-                        </div>
+                        <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                            {{ message }}
+                        </p>
+                        <button class="close-alert" id="btn"><i class="fa fa-window-close" aria-hidden="true"></i></button>
                         {% endfor %}
-                    {% endif %}
+                    </div>
+                    <hr>
                     <div  id="message-container">
                         <h2 class="content-title">Contact Developer</h2>
                         <div class="content-text">
@@ -151,7 +152,4 @@
     <button class="scroll" id="scroll-top">
         <i class="fa fa-arrow-circle-up"></i>
     </button>
-
-    <!-- JavaScript -->
-    <script src="{% static 'js/contact.js' %}"></script>
 {% endblock %}

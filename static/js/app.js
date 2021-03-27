@@ -17,6 +17,16 @@ closeHamburger.addEventListener("click", () => {
 })
 
 
+// Closing ALert Button
+let messagebtn = document.getElementById('btn');
+
+messagebtn.addEventListener('click', () => {
+    document.getElementById('div-al').style.display = 'none';
+    window.location.reload();
+})
+
+
+
 
 // Scrolling Top Button
 let scrollBtn = document.getElementById('scroll-top');

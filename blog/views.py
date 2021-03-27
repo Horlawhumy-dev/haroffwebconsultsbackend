@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 
 from .models import *
+from django.contrib import messages
 
 # Create your views here.
 def listing(request):
@@ -21,10 +22,13 @@ def blog_view(request, pk):
     if request.method == 'POST':
         name = request.POST['fullname']
         message = request.POST['message']
-        if name and message:
+        if name != '' and message != '':
             # print(name, message)
             user_comment = UserCommentDB(blog_title=blog_post, user=name, message=message)
             user_comment.save()
+            messages.add_message(request, messages.SUCCESS, 'Your comments got posted successfully!!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Kindly fill in all fields!!')
             return HttpResponseRedirect(request.path_info)
     context = {
         'blog_post': blog_post,
