@@ -18,22 +18,30 @@
         <!-- Section A -->
         <section id="section-a" class="grid">
             <div class="content-wrap">
-                {% if fullname %}
+                {% if fullname and messages %}
                     <center id="center">
-                        <h3>Thanks <strong>{{ fullname }} !!</strong></h3>
+                    <h3>Thanks <strong>{{ fullname }} !!</strong></h3>
+                    {% for message in messages %}
                         <div class="container">
-                            <p>We received your mail and will reply as soon as possible...</p>
+                            <p>
+                                {{ message.success }}
+                            </p>
                             <a href="{% url 'homepage:index' %}">Back To Home!!</a>
-                        </div>  
+                        </div> 
+                    {% endfor %} 
                     </center>
                
                 {% else %}
                     <br>
-                    <!-- Alert When filling form -->
-                    <div class="alert-div" id="div-al">
-                        <p>Please all fields are required!</p>
-                        <button class="close-alert" id="btn"><i class="fa fa-window-close" aria-hidden="true"></i></button>
-                    </div>
+                    {% if messages %}
+                        {% for message in messages %}
+                        <!-- Alert When filling form -->
+                        <div class="alert-div" id="div-al">
+                            <p>{{ messsge.error }}</p>
+                            <button class="close-alert" id="btn"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
                     <div  id="message-container">
                         <h2 class="content-title">Contact Developer</h2>
                         <div class="content-text">

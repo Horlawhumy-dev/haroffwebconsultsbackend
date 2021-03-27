@@ -18,49 +18,49 @@ closeHamburger.addEventListener("click", () => {
 
 
 
-// Message Form
-let messageForm = document.getElementById("form1");
+// // Message Form
+// let messageForm = document.getElementById("form1");
 
-let messengerName = document.getElementById('sender');
-let title = document.getElementById('title');
-let fromMail = document.getElementById('mail');
-let messageBody = document.getElementById('mssg');
+// let messengerName = document.getElementById('sender');
+// let title = document.getElementById('title');
+// let fromMail = document.getElementById('mail');
+// let messageBody = document.getElementById('mssg');
 
-messageForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if( messengerName.value === "" || title.value === "" || fromMail.value === "" || messageBody.value === ""){
+// messageForm.addEventListener("submit", (e) => {
+//     e.preventDefault();
+//     if( messengerName.value === "" || title.value === "" || fromMail.value === "" || messageBody.value === ""){
       
-        document.getElementById('div-al').style.visibility = 'visible';
-        // document.getElementById('message-container').style.display = 'block';
+//         document.getElementById('div-al').style.visibility = 'visible';
+//         // document.getElementById('message-container').style.display = 'block';
         
-        // Clearing Inputs
-        clearInputs();
+//         // Clearing Inputs
+//         clearInputs();
        
-    }else{
-        document.getElementById('message-container').style.display = 'none';
-        document.getElementById('center').style.display = 'block';
-    }
+//     }else{
+//         document.getElementById('message-container').style.display = 'none';
+//         document.getElementById('center').style.display = 'block';
+//     }
   
-})
+// })
 
 
-// clear inputs
-function clearInputs(){
-    messengerName = '';
-    title.value = '';
-    mail.value = '';
-    messageBody.value = '';
-}
+// // clear inputs
+// function clearInputs(){
+//     messengerName = '';
+//     title.value = '';
+//     mail.value = '';
+//     messageBody.value = '';
+// }
 
 
 
-// Closing ALert Button
-let messagebtn = document.getElementById('btn');
+// // Closing ALert Button
+// let messagebtn = document.getElementById('btn');
 
-messagebtn.addEventListener('click', () => {
-    document.getElementById('div-al').style.display = 'none';
-    window.location.reload();
-})
+// messagebtn.addEventListener('click', () => {
+//     document.getElementById('div-al').style.display = 'none';
+//     window.location.reload();
+// })
 
 
 

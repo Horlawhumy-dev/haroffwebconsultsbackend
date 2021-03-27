@@ -15,14 +15,18 @@
 
     <!-- Main -->
     <main id="main">
+        {% if messages %}
           <!-- Section C -->
         <section id="section-c" class="grid grid2">
            <div class="content-wrap">
                 <h2 class="content-title">Thanks For Subscribing!!!</h2>
-                <p>Your mail has been stored to our weekly newsletter database. Do navigate back homepage using link right above you.</p>
+                {% for message in messages %}
+                    
+                    <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+                {% endfor %}
             </div>
         </section>
-
+        {% endif %}
         <hr>
 
         {% comment %} <!-- Section C -->
