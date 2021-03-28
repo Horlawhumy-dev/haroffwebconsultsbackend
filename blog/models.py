@@ -23,7 +23,6 @@ class Content(models.Model):
     content5 = models.TextField(blank=True, null=True)
     author = models.CharField(max_length=100, null=True)
     content_pic = models.ImageField(blank=True, null=True)
-    # online = models.BooleanField(null=True)
     date_created = models.DateTimeField(default=timezone.now, null=True)
 
     def __str__(self):

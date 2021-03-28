@@ -2,12 +2,10 @@
 {% load static %}
 
 {% block title %}
-    <title>Mail Subscription | Haroff Web Consults</title>
+    <title>Newsletter Subscription || Contact Form | Haroff Web Consults</title>
 {% endblock %}
 
 {% block content %}
-   
-    
      <!-- Links Tags -->
     <div class="links-tag">
         <h4><a href="{% url 'homepage:index' %}"><i class="fa fa-home"></i> Home</a></h4>
@@ -17,31 +15,19 @@
     <main id="main">
           <!-- Section C -->
         <section id="section-c" class="grid grid2">
-            {% if messages.SUCCESS %}
-                <div class="content-wrap">
-                    <h2 class="content-title">Thanks For Subscribing!!!</h2>
-                    {% for message in messages %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="content-wrap">
+                        <h2 class="content-title">Rendered Redirect Page</h2>
                         <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-                            {% comment %} {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}{% endif %} {% endcomment %}
+                           {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
                             {{ message }}
                         </p>
-                    {% endfor %}
-                </div>
-            {% else %}
-                <div class="content-wrap">
-                    <h2 class="content-title">Mail Not Found!!!</h2>
-                    {% for message in messages %}
-                        <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-                            {{ message }}
-                        </p>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
             {% endif %}
         </section>
-       
         <hr>
-
         <!-- Section C -->
         <section id="section-c">
             {% if blog_listings %}
@@ -61,7 +47,6 @@
                     {% endfor %}
                 </div>
             {% endif %}
-
             <!-- Navigation -->
             <!-- <div class="carousel">
                 <div class="chevron">

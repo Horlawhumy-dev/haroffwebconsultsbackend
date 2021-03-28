@@ -18,7 +18,7 @@
         <!-- Section A -->
         <section id="section-a" class="grid">
             <div class="content-wrap">
-                {% if fullname and messages.SUCCESS %}
+                {% comment %} {% if fullname and messages.SUCCESS %}
                     <center id="center">
                     <h3>Thanks <strong>{{ fullname }} !!</strong></h3>
                     {% for message in messages %}
@@ -41,50 +41,50 @@
                         </p>
                         <button class="close-alert" id="btn"><i class="fa fa-window-close" aria-hidden="true"></i></button>
                         {% endfor %}
-                    </div>
-                    <hr>
-                    <div  id="message-container">
-                        <h2 class="content-title">Contact Developer</h2>
-                        <div class="content-text">
-                            <div class="wrapper">
-                                <div class="grid3">
-                                    <span class="icon">
-                                        <i class="fa fa-address-book" aria-hidden="true"></i>
-                                    </span>
-                                    Address Line
-                                </div>
-                                <div class="grid3">
-                                    <span class="icon">
-                                        <i class="fa fa-phone-square" aria-hidden="true"></i>
-                                    </span>
-                                Phone Number
-                                </div>
-                                <div class="grid3">
-                                    <span class="icon">
-                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    </span>
-                                Mail Address
-                                </div>
-                                <div class="grid3">
-                                    <span class="icon">
-                                        <i class="fa fa-github"></i>
-                                    </span>
-                                    <a href="https://github.com/Horlawhumy-dev?tab=overview&from=2021-02-01&to=2021-02-04" target="_blank">Github Profile</a>
-                                </div>
+                    </div> {% endcomment %}
+                <hr>
+                <div  id="message-container">
+                    <h2 class="content-title">Contact Developer</h2>
+                    <div class="content-text">
+                        <div class="wrapper">
+                            <div class="grid3">
+                                <span class="icon">
+                                    <i class="fa fa-address-book" aria-hidden="true"></i>
+                                </span>
+                                Address Line
                             </div>
-                            <hr>
-                            <h2>Get In Touch With The Developer</h2>
-                            <form  class="contact-form" id="form" method="POST">
-                                {% csrf_token %}
-                                <input type="text"  name="fullname" placeholder="Your full names..." id="sender">
-                                <input type="text" name="subject" placeholder="Subject or title..." id="title">
-                                <input type="email" name="email" placeholder="Type your email..." id="mail">
-                                <textarea name="message"  cols="30" rows="10" class="text_area" placeholder="Type in your message..." id="mssg"></textarea>
-                                <button type="submit" class="btn_send">Send Message</button>
-                            </form>
+                            <div class="grid3">
+                                <span class="icon">
+                                    <i class="fa fa-phone-square" aria-hidden="true"></i>
+                                </span>
+                            Phone Number
+                            </div>
+                            <div class="grid3">
+                                <span class="icon">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </span>
+                            Mail Address
+                            </div>
+                            <div class="grid3">
+                                <span class="icon">
+                                    <i class="fa fa-github"></i>
+                                </span>
+                                <a href="https://github.com/Horlawhumy-dev?tab=overview&from=2021-02-01&to=2021-02-04" target="_blank">Github Profile</a>
+                            </div>
                         </div>
+                        <hr>
+                        <h2>Get In Touch With The Developer</h2>
+                        <form  class="contact-form" id="form" method="POST" autocomplete="off">
+                            {% csrf_token %}
+                            <input type="text"  name="fullname" placeholder="Please your names here..." id="sender">
+                            <input type="text" name="subject" placeholder="Subject or title of message..." id="title">
+                            <input type="email" name="email" placeholder="Type in your email..." id="mail">
+                            <textarea name="message"  cols="30" rows="10" class="text_area" placeholder="Type in your message..." id="mssg"></textarea>
+                            <button type="submit" class="btn_send">Send Message</button>
+                        </form>
                     </div>
-                {% endif %}
+                </div>
+                {% comment %} {% endif %} {% endcomment %}
             </div>
         </section>
 

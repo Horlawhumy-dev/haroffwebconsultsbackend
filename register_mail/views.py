@@ -16,7 +16,7 @@ def register_mail(request):
             messages.add_message(request, messages.SUCCESS, 'You are succesfully subscribed to our newsletter! Navigate to home using above link.')
             return redirect('/register/mail')
         else:
-            messages.add_message(request, messages.ERROR, 'Please add your mail in the form.')
+            messages.add_message(request, messages.ERROR, 'Please provide your email to the newsletter form in the footer.')
     
     context = {
         "blog_listings": blog_listing

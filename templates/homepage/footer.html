@@ -24,13 +24,13 @@
 
             <div class="footer-form">
                 <h3>Subscribe To Our Weekly Newsletter</h3>
-                <!-- Alert When filling form -->
+                {% comment %} <!-- Alert When filling form -->
                 <div class="alert-div" id="alert">
                     <p>Please fill in all fields!</p>
                     <button class="close-alert" id="alert-btn">
                         <i class="fa fa-window-close" aria-hidden="true"></i>
                     </button>
-                </div>
+                </div> {% endcomment %}
                 <form action="{% url 'register_mail:register' %}" method="POST" id="form_mail">
                     {% csrf_token %}
                     <input type="email" name="mail" id="subscriber_mail" placeholder="Subscribe your mail...">

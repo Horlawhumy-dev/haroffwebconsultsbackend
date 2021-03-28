@@ -83,18 +83,6 @@
                                 <h5>{{ user_comment.user | title }}</h5>
                                 <p>{{ user_comment.message}}</p>
                                 <div class="buttons">
-                                    <button class="btn-edit">
-                                        <a href="{% url 'blog:update_comment' user_comment.id %}" >
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                    </button>
-
-                                    <button class="btn-edit">
-                                        <a href="{% url 'blog:delete_comment' user_comment.id %}" > 
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    </button>
-                                    
                                     <div class="post-prop flex-date">
                                         <i class="fa fa-calendar"></i>
                                         <span class="month">{{ user_comment.date_commented | date:"F " }} </span>
@@ -102,7 +90,6 @@
                                         <span class="year">{{ user_comment.date_commented | date:"  Y" }} </span>
                                         <span> <i class="fa fa-clock"></i> 5:04pm</span>
                                     </div>
-                                    
                                 </div>
                         </section>
                     {% endfor %}
@@ -113,22 +100,9 @@
             <!-- Section A -->
             <section id="section-a" class="grid">
                 <div class="content-wrap">
-                    {% if messages.ERROR %}
-                    <br>
-                        <!-- Alert When filling form -->
-                        <div class="alert-div" id="div-al">
-                            {% for message in messages %}
-                            <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-                                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-                                {{ message }}
-                            </p>
-                            <button class="close-alert" id="btn"><i class="fa fa-window-close" aria-hidden="true"></i></button>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
                     <hr>
                     <h2 class="content-title">Comment Section</h2>
-                    <form  action="" class="contact-form" id="form" method="POST">
+                    <form  action="" class="contact-form" id="form" method="POST" autocomplete="off">
                         {% csrf_token %}
                         <input type="text"  name="fullname" placeholder="Give your name here...">
                         <textarea name="message" id="" cols="30" rows="10" class="text_area" placeholder="Type in your comment..."></textarea>
