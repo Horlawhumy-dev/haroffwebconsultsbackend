@@ -48,21 +48,22 @@
                     <div class="chevron left-anime">
                         <a href="?page={{ page_obj.previous_page_number }}"> <i class="fa fa-chevron-left"></i></a>
                     </div>
-                
-                    <div class="circle-nav top-anime">
-                        <a href="?page=1">1</a>
+                    <br>
+                    <div class="top-anime">
+                        {% comment %} <a href="?page=1">1</a> {% endcomment %}
+                        <p> Page {{ page_obj.number}} of {{ page_obj.len }} </p>
                     </div>
-                    <div class="circle-nav top-anime">
-                        <a href="?page=2">2</a>
-                    </div>
-                    {% comment %} <div class="circle-nav top-anime">
-                        <a href="?page=3">3</a>
-                    </div> {% endcomment %}
                 {% endif %}
                 {% if page_obj.has_next %}
+                    <div class=" top-anime">
+                        {% comment %} <a href="?page=1">1</a> {% endcomment %}
+                        <p> Page {{ page_obj.number}} of {{ page_obj.len }} </p>
+                    </div>
                     <div class="chevron right-anime">
                         <a href="?page={{ page_obj.next_page_number }}"><i class="fa fa-chevron-right "></i></a>
                     </div>
+                    <br>
+                   
                 {% endif %}
             </div>
             <!-- Section C -->
