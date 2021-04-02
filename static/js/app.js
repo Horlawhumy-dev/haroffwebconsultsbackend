@@ -1,4 +1,25 @@
-// Hamburger Toggling
+
+// Scrolling Top Button
+let scrollBtn = document.getElementById('scroll-top');
+
+scrollBtn.addEventListener('click', () => {
+    // document.documentElement.scrollTop = '0';
+    currentYOffset = self.pageYOffset;
+    initYOffset = currentYOffset;
+
+    var intervalId = setInterval(function(){
+    currentYOffset -= initYOffset*0.05; 
+    document.body.scrollTop = currentYOffset ;
+    document.documentElement.scrollTop = currentYOffset;
+
+        if(self.pageYOffset == 0){
+        clearInterval(intervalId);
+        }
+    }, 30);
+
+})
+
+
 // opening Button
 let openHamburger = document.getElementById('open');
 let ulLinks = document.getElementById('links');
@@ -28,25 +49,16 @@ messagebtn.addEventListener('click', () => {
 
 
 
-// Scrolling Top Button
-let scrollBtn = document.getElementById('scroll-top');
 
-scrollBtn.addEventListener('click', () => {
-    // document.documentElement.scrollTop = '0';
-    currentYOffset = self.pageYOffset;
-    initYOffset = currentYOffset;
+// Getting current year for the footer
+let currYear = new Date().getUTCFullYear()
 
-    var intervalId = setInterval(function(){
-    currentYOffset -= initYOffset*0.05; 
-    document.body.scrollTop = currentYOffset ;
-    document.documentElement.scrollTop = currentYOffset;
+let yearSpan = document.getElementById('yearly');
 
-        if(self.pageYOffset == 0){
-        clearInterval(intervalId);
-        }
-    }, 15);
+yearSpan.textContent = currYear
 
-})
+
+
 
 
 

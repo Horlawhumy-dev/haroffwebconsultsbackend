@@ -7,7 +7,7 @@ from django.contrib import messages
 
 # Create your views here.
 def register_mail(request):
-    blog_listing = ShowcaseBlog.objects.filter(list=True)
+    blog_listing = ShowcaseBlog.objects.filter(list=True).order_by('id')
     if request.method == 'POST':
         mail = request.POST['mail']
         if mail != '':

@@ -2,7 +2,7 @@
    <!-- Header --> 
     <header id="showcase">
         <nav id="nav">
-            <div class="logo left-anime">Logo</div>
+            <div class="logo left-anime"><a href="{% url 'homepage:index' %}">LOGO</a></div>
             <button id="open" class="btn-open">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
@@ -11,7 +11,7 @@
                     <a href="{% url 'homepage:index' %}" target="_blank">HOME</a>
                 </li>
                 <li>
-                    <a href="{% url 'about:index' %}" target="_blank">ABOUT DEV</a>
+                    <a href="{% url 'about:index' %}" target="_blank">ABOUT DEVELOPER</a>
                 </li>
                 <li>
                     <a href="{% url 'blog:index' %}" target="_blank">BLOGS</a>

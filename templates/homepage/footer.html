@@ -4,8 +4,8 @@
             <div class="footer-links left-footer-grid">
                 <h3>Applications</h3>
                 <a href="{% url 'homepage:index' %}" target="_blank">HomePage</a>
-                  <a href="{% url 'about:index' %}" target="_blank">H-W-C</a>
-                <a href="{% url 'about:index' %}" target="_blank">About Dev.</a>
+                  <a href="{% url 'about_blog:index' %}" target="_blank">H-W-C</a>
+                <a href="{% url 'about:index' %}" target="_blank">About Dev</a>
                 <a href="{% url 'blog:index' %}" target="_blank">Blogs</a>
                 <a href="{% url 'contact:index' %}" target="_blank">Contact</a>
             </div>
@@ -23,14 +23,7 @@
             </div>
 
             <div class="footer-form">
-                <h3>Subscribe To Our Weekly Newsletter</h3>
-                {% comment %} <!-- Alert When filling form -->
-                <div class="alert-div" id="alert">
-                    <p>Please fill in all fields!</p>
-                    <button class="close-alert" id="alert-btn">
-                        <i class="fa fa-window-close" aria-hidden="true"></i>
-                    </button>
-                </div> {% endcomment %}
+                <h3>Haroff Web Consults Newsletter</h3>
                 <form action="{% url 'register_mail:register' %}" method="POST" id="form_mail">
                     {% csrf_token %}
                     <input type="email" name="mail" id="subscriber_mail" placeholder="Subscribe your mail...">
@@ -39,10 +32,10 @@
             </div>
         </div>
         <div class="copyright">
-            <div>Copyright &copy; Haroff Web Consults 2021.</div>
             <div>
                 <em>Project By <a href="https://twitter.com/HAROF97" target="_blank">HaroffCode</a> </em>
                 <a href="#"><em>Privacy Policy</em></a>
             </div>
+            <div>Copyright &copy; Haroff Web Consults <span id="yearly"></span>.</div>
         </div>
     </footer>

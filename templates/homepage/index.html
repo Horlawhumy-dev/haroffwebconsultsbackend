@@ -12,18 +12,19 @@
     </div>
     <!-- Main -->
     <main id="main">
-        {% if blogs %}
-            {% if about_content %}
-                <!-- Section A -->
-                <section id="section-a" class="grid">
-                    <div class="content-wrap right-anime">
-                        <h2 class="content-title">{{ about_content.headlines | upper }}</h2>
-                        <div class="content-text">
-                            <p>{{ about_content.about_content }}</p>
-                        </div>
+        {% if about_hwc %}
+            <!-- Section A -->
+            <section id="section-a" class="grid">
+                <div class="content-wrap right-anime">
+                    <h2 class="content-title">{{ about_hwc.headlines | upper }}</h2>
+                    <div class="content-text">
+                        <p>{{ about_hwc.about_blog1 }}</p>
+                        {% comment %} <p>{{ about_hwc.about_blog2 }}</p> {% endcomment %}
                     </div>
-                </section>
-            {% endif %}
+                </div>
+            </section>
+        {% endif %}
+        {% if blogs %}
             <!-- Secton B -->
             <section id="section-b" class="grid">
                 <ul>
@@ -40,85 +41,89 @@
                         </li>
                     {% endfor %}
                 </ul>
-        
             </section>
+
             <!-- Navigation -->
             <div class="carousel">
-                {% if page_obj.has_previous %}
+                {% if blogs.has_previous%}
                     <div class="chevron left-anime">
-                        <a href="?page={{ page_obj.previous_page_number }}"> <i class="fa fa-chevron-left"></i></a>
+                        <a href="?page={{ blogs.previous_page_number }}"> <i class="fa fa-chevron-left"></i></a>
                     </div>
                     <br>
+                   
+                {% endif %}
+                {% if blogs.has_next%}
                     <div class="top-anime">
                         {% comment %} <a href="?page=1">1</a> {% endcomment %}
-                        <p> Page {{ page_obj.number}} of {{ page_obj.len }} </p>
-                    </div>
-                {% endif %}
-                {% if page_obj.has_next %}
-                    <div class=" top-anime">
-                        {% comment %} <a href="?page=1">1</a> {% endcomment %}
-                        <p> Page {{ page_obj.number}} of {{ page_obj.len }} </p>
+                        <p> Page {{ blogs.number }} of {{ paginator.count }}</p>
                     </div>
                     <div class="chevron right-anime">
-                        <a href="?page={{ page_obj.next_page_number }}"><i class="fa fa-chevron-right "></i></a>
+                        <a href="?page={{ blogs.next_page_number }}"><i class="fa fa-chevron-right "></i></a>
                     </div>
                     <br>
                    
                 {% endif %}
             </div>
+           
             <!-- Section C -->
             <section id="section-c">
-                {% if blog_listings %}
+                {% if blogs %}
                     <div class="content-wrap ">
                         <h2 class="content-title">Haroff Web Consults Blogs</h2>
-                        {% for blog_listing in blog_listings reversed %}
+                        {% for blog in blogs reversed %}
                             <div class="recent-posts left-anime">
-                                <a href="{% url 'blog:main' blog_listing.id %}">{{ blog_listing.title | title }}</a>
+                                <a href="{% url 'blog:main' blog.id %}"  target='_blank'>{{ blog.title | title }}</a>
                                 <div class="post-prop">
                                     <i class="fa fa-calendar"></i>
-                                    <span class="month">{{ blog_listing.date_created | date:"F " }} </span>
-                                    <span class="day">{{ blog_listing.date_created | date:" d, " }} </span>
-                                    <span class="year">{{ blog_listing.date_created | date:"  Y" }} </span>
-                                <span>By: <i class="fa fa-user"></i> {{ blog_listing.author | title }}</span>
+                                    <span class="month">{{ blog.date_created | date:"F " }} </span>
+                                    <span class="day">{{ blog.date_created | date:" d, " }} </span>
+                                    <span class="year">{{ blog.date_created | date:"  Y" }} </span>
+                                <span>By: <i class="fa fa-user"></i> {{ blog.author | title }}</span>
                                 </div>
                             </div>
                         {% endfor %}
                     </div>
                 {% endif %}
 
-                <!-- Navigation -->
-                <!-- <div class="carousel">
-                    <div class="chevron">
-                        <i class="fa fa-chevron-left"></i>
+            <!-- Navigation -->
+            <div class="carousel">
+                {% if blogs.has_previous%}
+                    <div class="chevron left-anime">
+                        <a href="?page={{ blogs.previous_page_number }}"> <i class="fa fa-chevron-left"></i></a>
                     </div>
-                    <div class="circle-nav">1</div>
-                    <div class="circle-nav">2</div>
-                    <div class="circle-nav">3</div>
-                    <div class="chevron">
-                        <i class="fa fa-chevron-right"></i>
+                    <br>
+                   
+                {% endif %}
+                {% if blogs.has_next%}
+                    <div class="top-anime">
+                        {% comment %} <a href="?page=1">1</a> {% endcomment %}
+                        <p> Page {{ blogs.number }} of {{ paginator.count }}</p>
                     </div>
-                </div> -->
+                    <div class="chevron right-anime">
+                        <a href="?page={{ blogs.next_page_number }}"><i class="fa fa-chevron-right "></i></a>
+                    </div>
+                    <br>
+                   
+                {% endif %}
+            </div>
             </section>
-
-                    
-
-                <!-- Section D -->
-                <section id="section-d" class="grid">
-                    <div class="box">
-                        <h2 class="content-title">About The Developer</h2>
-                        <p>Lorem ipsum dolor sit amet  consectetur adipisicing elit.
-                        Qui sapiente reiciendis explicabo nemo similique animi ex a, fugit magnam incidunt!
-                        </p>
-                        <a href="{% url 'about:index' %}">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                    <div class="box">
-                        <h2 class="content-title">Contact Developer</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Qui sapiente reiciendis explicabo nemo similique animi ex a, fugit magnam incidunt!
-                        </p>
-                        <a href="{% url 'contact:index' %}">Reach Developer <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                </section>
+            <!-- Section D -->
+            <section id="section-d" class="grid">
+                <div class="box">
+                    <h2 class="content-title">About The Developer</h2>
+                    <p>Lorem ipsum dolor sit amet  consectetur adipisicing elit.
+                    Qui sapiente reiciendis explicabo nemo similique animi ex a, fugit magnam incidunt!
+                    </p>
+                    <a href="{% url 'about:index' %}">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+                <div class="box">
+                    <h2 class="content-title">Contact Developer</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Qui sapiente reiciendis explicabo nemo similique animi ex a, fugit magnam incidunt!
+                    </p>
+                    <a href="{% url 'contact:index' %}">Reach Developer <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </section>
         {% endif %}
     </main>
 
