@@ -814,14 +814,12 @@ section#comment .comment-div{
     margin-left: 1em;
 }
 
-
-
-
 /* Animations KeyFrames */
 
 @keyframes block {
     0%{opacity: 0;}
     100%{opacity: 1;}
+}
 
 @keyframes left {
     0% {left:-1000px; opacity: 0;}
@@ -839,8 +837,6 @@ section#comment .comment-div{
     100% {right: 0; opacity: 1;}
 
 }
-
-
 
 
 

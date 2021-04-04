@@ -814,9 +814,6 @@ section#comment .comment-div{
     margin-left: 1em;
 }
 
-
-
-
 /* Animations KeyFrames */
 
 @keyframes block {
@@ -840,8 +837,6 @@ section#comment .comment-div{
     100% {right: 0; opacity: 1;}
 
 }
-
-
 
 
 
@@ -1000,9 +995,14 @@ section#comment .comment-div{
 
     .grid2{
         display: grid;
-        grid-template-columns: 10em repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 
+    .grid3{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
     .btn-open{
         visibility: hidden;
     }
