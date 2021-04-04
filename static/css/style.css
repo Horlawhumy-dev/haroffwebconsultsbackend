@@ -998,7 +998,7 @@ section#comment .comment-div{
         grid-template-columns: repeat(1, 1fr);
     }
 
-    .grid3{
+    .grid4{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
