@@ -848,10 +848,10 @@ section#comment .comment-div{
         text-align: justify;
     }
 
-    .carousel{
+    /* .carousel{
         display: none;
     }
-    
+     */
     .btn-open{
         border-radius: 3px;
         border: none;
