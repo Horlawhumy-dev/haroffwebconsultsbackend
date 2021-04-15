@@ -71,9 +71,11 @@
 
                 <div>Thanks For Reading The Piece!!!</div>  
             </section>
-            
+
+            <h4><a href="{% url 'comment:comment-list' blog_post.id %}">Leave Comments</a></h4>
+             
             <!-- Section Comment -->
-            <h4>Comments Section</h4>
+            {% comment %} <h4>Comments Section</h4>
             <hr>
             {% if comments %} 
                 <div>
@@ -83,22 +85,29 @@
                                 <h5>{{ user_comment.user | title }}</h5>
                                 <p>{{ user_comment.message}}</p>
                                 <div class="buttons">
+                                     <button class="btn-edit">
+                                        <a href="#"><i class="fa fa-edit"></i></a>
+                                    </button>
+                                    <button class="btn-edit">
+                                        <a href="#"><i class="fa fa-trash"></i></a>
+                                    </button>
+                                   
                                     <div class="post-prop flex-date">
                                         <i class="fa fa-calendar"></i>
                                         <span class="month">{{ user_comment.date_commented | date:"F " }} </span>
                                         <span class="day">{{ user_comment.date_commented  | date:" d, " }} </span>
                                         <span class="year">{{ user_comment.date_commented | date:"  Y" }} </span>
-                                        <span> <i class="fa fa-clock"></i> 5:04pm</span>
+                                        <span> <i class="fa fa-clock"></i> {{ user_comment.date_commented | time:'G:i:s'}}</span>
                                     </div>
                                 </div>
                         </section>
                     {% endfor %}
                 </div> 
             {% endif %}
-            <br>
+            <br> {% endcomment %}
 
             <!-- Section A -->
-            <section id="section-a" class="grid">
+            {% comment %} <section id="section-a" class="grid">
                 <div class="content-wrap">
                     <hr>
                     <h2 class="content-title">Comment Section</h2>
@@ -109,8 +118,7 @@
                         <button type="submit" class="btn_send">Post Comment</button>
                     </form>
                 </div>   
-            </section> 
-
+            </section> {% endcomment %}
             <!-- Section C -->
             <section id="section-c">
                 {% if blogs %}

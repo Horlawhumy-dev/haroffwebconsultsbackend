@@ -1,0 +1,108 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+{% load rest_framework%}
+{% block title %}
+    <title>Blog Content | Haroff Web Consults</title>
+{% endblock %}
+
+{% block content %}
+    <!-- Links Tags -->
+    <div class="links-tag">
+        <h4><a href="{% url 'homepage:index' %}"><i class="fa fa-home"></i> Home</a></h4>
+        <div><i class="fa fa-chevron-right" aria-hidden="true"></i></div> 
+        <h4><a href="{% url 'blog:index' %}"><i class="fa fa-book"></i> Blogs</a></h4>
+    </div>
+
+    <!-- Main -->
+    <main id="main">
+        <h4>Comments Section</h4>
+            <hr>
+            {% if comments %} 
+                <div>
+                    {% for user_comment in comments %}
+                        <section id="comment">
+                            <div class="comment-div">
+                                <h5>{{ user_comment.user | title }}</h5>
+                                <p>{{ user_comment.message}}</p>
+                                <div class="buttons">
+                                    <div class="edit-delete">
+                                        <button class="btn-edit">
+                                            <a href="#"><i class="fa fa-edit"></i></a>
+                                        </button>
+                                        <button class="btn-edit">
+                                            <a href="{% url 'comment:comment-delete' user_comment.id %}"><i class="fa fa-trash"></i></a>
+                                        </button>
+                                    </div>
+                                    <div class="post-prop flex-date">
+                                        <i class="fa fa-calendar"></i>
+                                        <span class="month">{{ user_comment.date_commented | date:"F " }} </span>
+                                        <span class="day">{{ user_comment.date_commented  | date:" d, " }} </span>
+                                        <span class="year">{{ user_comment.date_commented | date:"  Y" }} </span>
+                                        <span> <i class="fa fa-clock"></i> {{ user_comment.date_commented | time:'G:i:s'}}</span>
+                                    </div>
+                                </div>
+                        </section>
+                    {% endfor %}
+                </div> 
+            {% endif %}
+            <br>
+
+            <!-- Section A -->
+            <section id="section-a" class="grid">
+                <div class="content-wrap">
+                    <hr>
+                    <h2 class="content-title">Comment Section</h2>
+                    <form  action="" class="contact-form" id="form" method="POST" autocomplete="off">
+                        {% csrf_token %}
+                        <input type="text"  name="fullname" placeholder="Give your name here...">
+                        <textarea name="message" id="" cols="30" rows="10" class="text_area" placeholder="Type in your comment..."></textarea>
+                        <button type="submit" class="btn_send">Post Comment</button>
+                    </form>
+                </div>   
+            </section>
+            <!-- Section C -->
+            <section id="section-c">
+                {% if blogs %}
+                    <div class="content-wrap ">
+                        <h2 class="content-title">Haroff Web Consults Blogs</h2>
+                        {% for blog in blogs reversed %}
+                            <div class="recent-posts left-anime">
+                                <a href="{% url 'blog:main' blog.id %}">{{ blog.title | title }}</a>
+                                <div class="post-prop">
+                                    <i class="fa fa-calendar"></i>
+                                    <span class="month">{{ blog.date_created | date:"F " }} </span>
+                                    <span class="day">{{ blog.date_created | date:" d, " }} </span>
+                                    <span class="year">{{ blog.date_created | date:"  Y" }} </span>
+                                <span>By: <i class="fa fa-user"></i> {{ blog.author | title }}</span>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            <!-- Navigation -->
+            <div class="carousel">
+                {% if blogs.has_previous%}
+                    <div class="chevron left-anime">
+                        <a href="?page={{ blogs.previous_page_number }}"> <i class="fa fa-chevron-left"></i></a>
+                    </div>
+                    <br>
+                {% endif %}
+                {% if blogs.has_next%}
+                    <div class="top-anime">
+                        {% comment %} <a href="?page=1">1</a> {% endcomment %}
+                        <p> Page {{ blogs.number }} of {{ paginator.count }}</p>
+                    </div>
+                    <div class="chevron right-anime">
+                        <a href="?page={{ blogs.next_page_number }}"><i class="fa fa-chevron-right "></i></a>
+                    </div>
+                    <br>
+                    
+                {% endif %}
+            </div>
+            </section>
+    </main>
+    <!-- Scroll Button -->
+    <button class="scroll" id="scroll-top">
+        <i class="fa fa-arrow-circle-up"></i>
+    </button>
+{% endblock %}

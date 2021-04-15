@@ -28,37 +28,46 @@
             {% endif %}
         </section>
         <hr>
-        <!-- Section C -->
+       <!-- Section C -->
         <section id="section-c">
-            {% if blog_listings %}
+            {% if blogs %}
                 <div class="content-wrap ">
                     <h2 class="content-title">Haroff Web Consults Blogs</h2>
-                    {% for blog_listing in blog_listings reversed %}
+                    {% for blog in blogs reversed %}
                         <div class="recent-posts left-anime">
-                            <a href="{% url 'blog:main' blog_listing.id %}">{{ blog_listing.title | title }}</a>
+                            <a href="{% url 'blog:main' blog.id %}">{{ blog.title | title }}</a>
                             <div class="post-prop">
                                 <i class="fa fa-calendar"></i>
-                                <span class="month">{{ blog_listing.date_created | date:"F " }} </span>
-                                <span class="day">{{ blog_listing.date_created | date:" d, " }} </span>
-                                <span class="year">{{ blog_listing.date_created | date:"  Y" }} </span>
-                                <span>By: <i class="fa fa-user"></i> {{ blog_listing.author | title }}</span>
+                                <span class="month">{{ blog.date_created | date:"F " }} </span>
+                                <span class="day">{{ blog.date_created | date:" d, " }} </span>
+                                <span class="year">{{ blog.date_created | date:"  Y" }} </span>
+                            <span>By: <i class="fa fa-user"></i> {{ blog.author | title }}</span>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
             {% endif %}
+
             <!-- Navigation -->
-            <!-- <div class="carousel">
-                <div class="chevron">
-                    <i class="fa fa-chevron-left"></i>
-                </div>
-                <div class="circle-nav">1</div>
-                <div class="circle-nav">2</div>
-                <div class="circle-nav">3</div>
-                <div class="chevron">
-                    <i class="fa fa-chevron-right"></i>
-                </div>
-            </div> -->
+            <div class="carousel">
+                {% if blogs.has_previous%}
+                    <div class="chevron left-anime">
+                        <a href="?page={{ blogs.previous_page_number }}"> <i class="fa fa-chevron-left"></i></a>
+                    </div>
+                    <br>
+                {% endif %}
+                {% if blogs.has_next%}
+                    <div class="top-anime">
+                        {% comment %} <a href="?page=1">1</a> {% endcomment %}
+                        <p> Page {{ blogs.number }} of {{ paginator.count }}</p>
+                    </div>
+                    <div class="chevron right-anime">
+                        <a href="?page={{ blogs.next_page_number }}"><i class="fa fa-chevron-right "></i></a>
+                    </div>
+                    <br>
+                    
+                {% endif %}
+            </div>
         </section>
     </main>
 

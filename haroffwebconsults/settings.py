@@ -25,18 +25,21 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'homepage',
-    'about',
-    'blog',
-    'contact',
-    'about_blog',
-    'register_mail',
+  
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'homepage',
+    'about',
+    'blog',
+    'contact',
+    'about_blog',
+    'register_mail',
+    'comment'
 ]
 
 MIDDLEWARE = [
