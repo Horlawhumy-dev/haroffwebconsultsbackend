@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'blog',
     'contact',
     'about_blog',
-    'register_mail',
-    'comment'
+    'register_mail'
 ]
 
 MIDDLEWARE = [

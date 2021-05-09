@@ -72,10 +72,9 @@
                 <div>Thanks For Reading The Piece!!!</div>  
             </section>
 
-            <h4><a href="{% url 'comment:comment-list' blog_post.id %}">Leave Comments</a></h4>
-             
+              -->
             <!-- Section Comment -->
-            {% comment %} <h4>Comments Section</h4>
+           <h4>Comments Section</h4>
             <hr>
             {% if comments %} 
                 <div>
@@ -84,14 +83,14 @@
                             <div class="comment-div">
                                 <h5>{{ user_comment.user | title }}</h5>
                                 <p>{{ user_comment.message}}</p>
+                                <!-- <div class="post-prop flex-date">
+                                    <i class="fa fa-calendar"></i>
+                                    <span class="month">{{ user_comment.date_commented | date:"F " }} </span>
+                                    <span class="day">{{ user_comment.date_commented  | date:" d, " }} </span>
+                                    <span class="year">{{ user_comment.date_commented | date:"  Y" }} </span>
+                                    <span> <i class="fa fa-clock"></i> {{ user_comment.date_commented | time:'G:i:s'}}</span>
+                                </div> -->
                                 <div class="buttons">
-                                     <button class="btn-edit">
-                                        <a href="#"><i class="fa fa-edit"></i></a>
-                                    </button>
-                                    <button class="btn-edit">
-                                        <a href="#"><i class="fa fa-trash"></i></a>
-                                    </button>
-                                   
                                     <div class="post-prop flex-date">
                                         <i class="fa fa-calendar"></i>
                                         <span class="month">{{ user_comment.date_commented | date:"F " }} </span>
@@ -99,26 +98,30 @@
                                         <span class="year">{{ user_comment.date_commented | date:"  Y" }} </span>
                                         <span> <i class="fa fa-clock"></i> {{ user_comment.date_commented | time:'G:i:s'}}</span>
                                     </div>
+                                   
+                                    
                                 </div>
                         </section>
                     {% endfor %}
                 </div> 
             {% endif %}
-            <br> {% endcomment %}
+            <br> 
 
             <!-- Section A -->
-            {% comment %} <section id="section-a" class="grid">
+            <section id="section-a" class="grid">
                 <div class="content-wrap">
                     <hr>
                     <h2 class="content-title">Comment Section</h2>
                     <form  action="" class="contact-form" id="form" method="POST" autocomplete="off">
                         {% csrf_token %}
-                        <input type="text"  name="fullname" placeholder="Give your name here...">
-                        <textarea name="message" id="" cols="30" rows="10" class="text_area" placeholder="Type in your comment..."></textarea>
+                        {{ form.name }}
+                        {{ form.message }}
+                        <!-- <input type="text"  name="fullname" placeholder="Give your name here...">
+                        <textarea name="message" id="" cols="30" rows="10" class="text_area" placeholder="Type in your comment..."></textarea> -->
                         <button type="submit" class="btn_send">Post Comment</button>
                     </form>
                 </div>   
-            </section> {% endcomment %}
+            </section> 
             <!-- Section C -->
             <section id="section-c">
                 {% if blogs %}
