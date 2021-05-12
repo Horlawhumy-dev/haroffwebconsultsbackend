@@ -1,3 +1,8 @@
+const form = document.getElementsByTagName('form');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+})
+
 
 // Scrolling Top Button
 let scrollBtn = document.getElementById('scroll-top');

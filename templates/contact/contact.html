@@ -64,21 +64,23 @@
             </div>
         </section>
 
-    <!-- Section C -->
-        <section id="section-c">
+  
+       <!-- Section C -->
+       <section id="section-c">
+            <h2 class="content-title">Haroff Web Consults Blogs</h2>
             {% if blogs %}
-                <div class="content-wrap ">
-                    <h2 class="content-title">Haroff Web Consults Blogs</h2>
+                <div class="content-wrap">
                     {% for blog in blogs reversed %}
                         <div class="recent-posts left-anime">
-                            <a href="{% url 'blog:main' blog.id %}">{{blog.title | title }}</a>
                             <div class="post-prop">
                                 <i class="fa fa-calendar"></i>
                                 <span class="month">{{ blog.date_created | date:"F " }} </span>
                                 <span class="day">{{ blog.date_created | date:" d, " }} </span>
                                 <span class="year">{{ blog.date_created | date:"  Y" }} </span>
-                            <span>By: <i class="fa fa-user"></i> {{ blog.author | title }}</span>
+                                <span>Author: <i class="fa fa-user"></i> {{ blog.author | title }}</span>
                             </div>
+                            <a href="{% url 'blog:main' blog.id %}"  target='_blank'>{{ blog.title | title }}</a>
+                            <div class="type">General</div>
                         </div>
                     {% endfor %}
                 </div>

@@ -54,7 +54,6 @@ p{
     margin-top: 0em;
 }
 
-
 button.close-alert{
     border: none;
     padding: .7em 1.2em;
@@ -85,7 +84,7 @@ button.close-alert:active{
     padding: .5em;
     background-color: #ff0000;
     border-radius: 7px;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 
@@ -201,6 +200,7 @@ center .container a:active{
     text-decoration: none;
     color: #fff;
 }
+
 
 #showcase{
     min-height: 450px;
@@ -454,37 +454,51 @@ center .container a:active{
 }
 
 #section-c .content-wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
 }
 
 #section-c .content-text p{
     background-color: #2690d4;
+    color: black;
 }
 
+.type{
+    background-color: lightgray;
+    color: #2690d4;
+    padding: .5em;
+    margin-top: 1em;
+}
+
+
 #section-c .content-wrap  .recent-posts{
+    background-color: #469cd1;
     display: flex;
-    justify-content: space-between;
-    border: 1px solid #333;
-    border-radius: 10px;
-    box-shadow: 0 3px 2px #333;
+    flex-direction: column;
+    align-items: flex-start;
     margin-bottom: 1em;
-    margin-left: 1em;
-    padding: 1em;
-    width: 60%;
+    padding: 1em 2em;
+    
 }
 
 #section-c .content-wrap .recent-posts a{
-    color: #2690d4;
+    text-decoration: none;
+    color: #fdfdfd;
     font-size: 17px;
     transition: all 500ms ease-out;
     text-align: start;
+    margin-top: 1em;
 }
 
-#section-c .content-wrap  .recent-posts a:hover{
-    font-size: 18px;
+#section-c .content-wrap .recent-posts a:hover{
+    text-decoration: underline;
+}
+
+#section-c .content-wrap  .recent-posts:hover{
+    transform: scale(1.1);
+    transition: all 1s ease-in-out;
+    box-shadow: 0 2px 4px #333;
 }
 
 #section-c .content-wrap .recent-posts .post-prop{
@@ -524,7 +538,6 @@ section#comment .comment-div{
     text-align: start;
     display: flex;
 }
-
 
 .flex-date{
     font-size: 13px;
@@ -691,17 +704,17 @@ section#comment .comment-div{
     color: #fff;
     width: 1.8em;
     height: 1.8em;
-    font-size: 1.3em;
+    font-size: 1.2em;
     border-radius: 50%;
     cursor: pointer;
     text-align: center;
+    margin-right: 1em;
 }
 
 .carousel .chevron a i{
     color: #2690d4;
     font-size: 1.6em;
 }
-
 
 .carousel .chevron i:active{
     color: red;
@@ -792,7 +805,6 @@ section#comment .comment-div{
     animation-iteration-count: 1;
     transition: transform 2s linear;
     position: relative;
-    margin-right: 1em;
 }
 
 
@@ -812,8 +824,10 @@ section#comment .comment-div{
     /* animation-delay: 2s; */
     transition: transform 2s linear;
     position: relative;
-    margin-left: 1em;
 }
+
+
+
 
 /* Animations KeyFrames */
 
@@ -841,6 +855,8 @@ section#comment .comment-div{
 
 
 
+
+
 /* Meadia Queries */
 
 @media screen and (max-width:699px){
@@ -849,10 +865,10 @@ section#comment .comment-div{
         text-align: justify;
     }
 
-    /* .carousel{
+    .carousel{
         display: none;
     }
-     */
+    
     .btn-open{
         border-radius: 3px;
         border: none;
@@ -954,13 +970,21 @@ section#comment .comment-div{
     } */
 
     
-    #section-c .content-wrap a{
+    /* #section-c .content-wrap a{
         width: 100%;
-    }
+    } */
 
     #comment-section .comment-content{
         width: 80%;
         margin: 0 auto;
+    }
+
+    #section-c .content-wrap{
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        
     }
 
     #section-c .content-wrap .recent-posts{
@@ -996,14 +1020,14 @@ section#comment .comment-div{
 
     .grid2{
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: 10em repeat(2, 1fr);
     }
 
-    .grid4{
+    .grid3{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
-    
+
     .btn-open{
         visibility: hidden;
     }
@@ -1202,6 +1226,7 @@ section#comment .comment-div{
     }
 
     #section-c .content-wrap  .recent-posts{
+        background-color: red;
         padding: 0;
         width: 100%;
     }
