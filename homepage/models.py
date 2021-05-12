@@ -8,6 +8,7 @@ class ShowcaseBlog(models.Model):
     new = models.BooleanField(null=True)
     list = models.BooleanField(null=True)
     author = models.CharField(max_length=100, null=True)
+    type = models.CharField(max_length=10, null=True)
     date_created = models.DateTimeField(default=timezone.now, null=True)
 
     def __str__(self):

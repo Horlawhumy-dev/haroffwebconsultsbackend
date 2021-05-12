@@ -459,6 +459,10 @@ center .container a:active{
     grid-gap: 20px;
 }
 
+#section-c .content-wrap2 {
+    text-align: center;
+    padding: .5em 1em;
+}
 #section-c .content-text p{
     background-color: #2690d4;
     color: black;
@@ -491,14 +495,15 @@ center .container a:active{
     margin-top: 1em;
 }
 
+
 #section-c .content-wrap .recent-posts a:hover{
     text-decoration: underline;
 }
 
 #section-c .content-wrap  .recent-posts:hover{
     transform: scale(1.1);
-    transition: all 1s ease-in-out;
-    box-shadow: 0 2px 4px #333;
+    transition: all 500ms ease-in-out;
+    /* box-shadow: 0 2px 4px #333;' */
 }
 
 #section-c .content-wrap .recent-posts .post-prop{

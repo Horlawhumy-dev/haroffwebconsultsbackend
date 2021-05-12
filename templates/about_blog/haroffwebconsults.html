@@ -70,8 +70,9 @@
                                     <span class="month">{{ blog.date_created | date:"F " }} </span>
                                     <span class="day">{{ blog.date_created | date:" d, " }} </span>
                                     <span class="year">{{ blog.date_created | date:"  Y" }} </span>
-                                    <span>Author: <i class="fa fa-user"></i> {{ blog.author | title }}</span>
                                 </div>
+                                <span>Author: <i class="fa fa-user"></i> {{ blog.author | title }}</span>
+
                                  <a href="{% url 'blog:main' blog.id %}"  target='_blank'>{{ blog.title | title }}</a>
                                 <div class="type">General</div>
                             </div>

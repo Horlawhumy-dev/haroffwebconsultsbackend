@@ -25,7 +25,7 @@
         <section id="section-c" class="grid grid2">
             {% if about_dev %}
                 <img src="{{ about_dev.Profile_pic.url }}" alt="">
-                <div class="content-wrap">
+                <div class="content-wrap2">
                     <h2 class="content-title">{{ about_dev.Title | title }}</h2>
                     <p>{{ about_dev.About1 }}</p>
                     <br>
@@ -70,8 +70,9 @@
                                 <span class="month">{{ blog.date_created | date:"F " }} </span>
                                 <span class="day">{{ blog.date_created | date:" d, " }} </span>
                                 <span class="year">{{ blog.date_created | date:"  Y" }} </span>
-                                <span>Author: <i class="fa fa-user"></i> {{ blog.author | title }}</span>
                             </div>
+                            <span>Author: <i class="fa fa-user"></i> {{ blog.author | title }}</span>
+
                              <a href="{% url 'blog:main' blog.id %}"  target='_blank'>{{ blog.title | title }}</a>
                             <div class="type">General</div>
                         </div>
