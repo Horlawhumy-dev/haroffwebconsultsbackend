@@ -14,7 +14,7 @@
 /* Core Styles */
 
 body{
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.5);
     color: white;
     font-family: "Poppins", sans-serif;
     line-height: 1.5;
@@ -314,17 +314,20 @@ center .container a:active{
     margin-top: 1em;
 }
 
+
+
 #section-a .contact-form input, textarea{
     background-color: transparent;
     border: 1px solid #2690d4;
     border-radius: 3px;
-    color: #269;
+    color: #2690d4;
     font-size: 1.1em;
     font-weight: 300;
     padding: 1em;
     font-weight: 600;
     margin-bottom: 1rem;
-    outline: re;
+    outline: none;
+    resize: none;
 }
 
 
@@ -502,7 +505,7 @@ center .container a:active{
 
 #section-c .content-wrap  .recent-posts:hover{
     transform: scale(1.1);
-    transition: all 500ms ease-in-out;
+    transition:  transform 500ms ease-in;
     /* box-shadow: 0 2px 4px #333;' */
 }
 
@@ -870,9 +873,9 @@ section#comment .comment-div{
         text-align: justify;
     }
 
-    .carousel{
+    /* .carousel{
         display: none;
-    }
+    } */
     
     .btn-open{
         border-radius: 3px;
@@ -1023,10 +1026,10 @@ section#comment .comment-div{
         grid-template-columns:1fr repeat(2, minmax(auto, 25em)) 1fr;
     }
 
-    .grid2{
+    /* .grid2{
         display: grid;
         grid-template-columns: 10em repeat(2, 1fr);
-    }
+    } */
 
     .grid3{
         display: grid;

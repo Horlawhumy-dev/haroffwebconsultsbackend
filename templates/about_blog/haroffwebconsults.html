@@ -27,9 +27,9 @@
                 {% comment %} <img src="{{ about_dev.Profile_pic.url }}" alt=""> {% endcomment %}
                 <div class="content-wrap">
                     <h2 class="content-title">{{ about.headlines | title }}</h2>
-                    <p>{{ about.about_blog1 }}</p>
-                    <br>
-                    <p>{{ about.about_blog2 }}</p>
+                    <p>{{ about.about_blog|safe }}</p>
+                    <!-- <br>
+                    <p>{{ about.about_blog2 }}</p> -->
                 </div>
 
                 <div class="about-links">

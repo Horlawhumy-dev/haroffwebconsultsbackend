@@ -27,9 +27,9 @@
                 <img src="{{ about_dev.Profile_pic.url }}" alt="">
                 <div class="content-wrap2">
                     <h2 class="content-title">{{ about_dev.Title | title }}</h2>
-                    <p>{{ about_dev.About1 }}</p>
-                    <br>
-                    <p>{{ about_dev.About2 }}</p>
+                    <p>{{ about_dev.about|safe }}</p>
+                    <!-- <br>
+                    <p>{{ about_dev.About2 }}</p> -->
                 </div>
 
                 <div class="about-links">

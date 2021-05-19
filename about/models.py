@@ -1,11 +1,11 @@
 from django.db import models
 from django.utils import timezone
-# Create your models here.
+from ckeditor.fields import RichTextField
 
 class AboutDeveloper(models.Model):
     Title = models.CharField(max_length=100)
-    About1 = models.TextField(blank=True, null=True)
-    About2 = models.TextField(blank=True, null=True)
+    about = RichTextField(blank=True, null=True)
+    # About2 = RichTextField(blank=True, null=True)
     go_online = models.BooleanField(null=True)
     Profile_pic = models.ImageField(blank=True, null=True)
     Date_created = models.DateTimeField(default=timezone.now, null=True)

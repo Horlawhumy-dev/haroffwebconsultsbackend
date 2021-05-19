@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from django.utils import timezone
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -16,11 +17,11 @@ class InfoBlog(models.Model):
 class Content(models.Model):
     blog_category = models.ForeignKey('InfoBlog', null=True, on_delete=models.CASCADE)
     blog_title = models.CharField(max_length=100, null=True)
-    content1 = models.TextField(blank=True, null=True)
-    content2 = models.TextField(blank=True, null=True)
-    content3 = models.TextField(blank=True, null=True)
-    content4 = models.TextField(blank=True, null=True)
-    content5 = models.TextField(blank=True, null=True)
+    content = RichTextField(blank=True, null=True)
+    # content2 = RichTextField(blank=True, null=True)
+    # content3 = RichTextField(blank=True, null=True)
+    # content4 = RichTextField(blank=True, null=True)
+    # content5 = RichTextField(blank=True, null=True)
     author = models.CharField(max_length=100, null=True)
     content_pic = models.ImageField(blank=True, null=True)
     date_created = models.DateTimeField(default=timezone.now, null=True)

@@ -18,8 +18,7 @@
                 <div class="content-wrap right-anime">
                     <h2 class="content-title">{{ about_hwc.headlines | upper }}</h2>
                     <div class="content-text">
-                        <p>{{ about_hwc.about_blog1 }}</p>
-                        {% comment %} <p>{{ about_hwc.about_blog2 }}</p> {% endcomment %}
+                        <p>{{ about_hwc.about_blog|safe }}</p>
                     </div>
                 </div>
             </section>
@@ -34,7 +33,7 @@
                                 <img src="{% static 'images/posts.jpg' %}" alt="">
                                 <div class="card-content">
                                     <h3>{{ blog.title | upper}}</h3>
-                                    <p>{{ blog.description }}</p>
+                                    <p>{{ blog.description|safe }}</p>
                                     <a href="{% url 'blog:main' blog.id %}">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
