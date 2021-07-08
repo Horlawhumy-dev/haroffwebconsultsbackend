@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
+
 from .form import  CommentForm
 from .models import *
 from homepage.models import ShowcaseBlog
@@ -25,11 +26,11 @@ def listing(request):
     return render(request, 'blog/listings.html', context)
 
     
-def blog_view(request, pk):
+def blog_view(request, slug):
     # Querying the blog database
-    blog_post = Content.objects.get(blog_category_id=pk)
+    blog_post = Content.objects.get(blog_category_id=slug)
     blog_lists = ShowcaseBlog.objects.all().order_by('id')
-    comments = UserCommentDB.objects.filter(blog_title_id=pk).order_by('id')
+    comments = UserCommentDB.objects.filter(blog_title_id=slug).order_by('id')
     blog_title = UserCommentDB.objects.filter(blog_title_id=blog_post.id)
     form = CommentForm()
     if request.method == 'POST':

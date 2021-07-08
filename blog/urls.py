@@ -6,5 +6,5 @@ from . import views
 app_name = 'blog'
 urlpatterns = [
     path('list/', views.listing, name="index"),
-    path('main/<str:pk>/', views.blog_view, name="main")
+    path('main/<slug:slug>/', views.blog_view, name="main")
 ]
